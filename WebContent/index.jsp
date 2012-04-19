@@ -71,6 +71,8 @@ body
     </div>
     </form>
     
+    <a href="./whatever.jsp">Visit Whatever!<a>
+    
     <h2>V1.0</h2>
 </body>
 </html>
