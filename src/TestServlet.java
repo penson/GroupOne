@@ -37,9 +37,10 @@ public class TestServlet extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String userName = request.getParameter("userName").toString();
-        String password = request.getParameter("password").toString();
-        /*
+        String email = request.getParameter("emailAddress").toString();
+        //String password = request.getParameter("password").toString();
+   
+        
         out.println("<html>");
         out.println("<head>");
         out.println("<title>Servlet GreetingServlet</title>");
@@ -47,11 +48,10 @@ public class TestServlet extends HttpServlet {
         out.println("<body>");
         out.println("<h1>Servlet GreetingServlet at " + request.getContextPath () + "</h1>");
         out.println("<a href=\"http://www.groupon.com/\">Visit Groupons!<a>");
-        out.println("<p>Welcome " + userName + "</p>");
+        out.println("<p>Welcome " + email + "</p>");
         out.println("</body>");
         out.println("</html>");
-	
-		*/
+
         
         out.println("<a href=\"newPage.jsp\">Visit Groupons!<a>");
         out.close();
