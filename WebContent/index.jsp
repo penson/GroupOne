@@ -8,7 +8,7 @@
 <style type="text/css">
 body
 {
-	background-image:url('http://i.imgur.com/kQLqM.jpg');	
+	background-image:url('http://assets2.grouponcdn.com/images/groupon/landing_pages/bg-drinks.jpg');	
 }
 </style>
 </head>
@@ -104,5 +104,10 @@ body
 			<input tabindex="4" type="submit" value="Submit" /></p>
         
     <div align="center"><h2>V1.0</h2></div>
+    <%
+    // This scriptlet declares and initializes "date"
+    System.out.println( "Evaluating date now" );
+    java.util.Date date = new java.util.Date();
+%>
 </body>
 </html>
