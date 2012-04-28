@@ -40,21 +40,7 @@ public class TestServlet extends HttpServlet {
         String email = request.getParameter("emailAddress").toString();
         //String password = request.getParameter("password").toString();
    
-        
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>Servlet GreetingServlet</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<h1>Servlet GreetingServlet at " + request.getContextPath () + "</h1>");
-        out.println("<a href=\"http://www.groupon.com/\">Visit Groupons!<a>");
-        out.println("<p>Welcome " + email + "</p>");
-        out.println("</body>");
-        out.println("</html>");
-
-        
-        out.println("<a href=\"newPage.jsp\">Visit Groupons!<a>");
-        out.close();
+        request.getRequestDispatcher("/page_home.jsp").forward(request, response);
         
 	}
 
