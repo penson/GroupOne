@@ -14,35 +14,30 @@ body
 </head>
 <body>
 <div id="bar">
-<form id="signupForm" action="TestServlet" method="POST">
+<form id="signupForm" action="VerifyLogin" method="POST">
 	<a class="lfloat" href="/GroupOne/index.jsp" title="Go to GroupOne Home"><img alt="GroupOne logo" class="logo img" src="http://i.imgur.com/cLLbp.png" /> </a>
 	<table align="right" cellspacing="0">
 		<tbody>
 			<tr>
-				<td class="html7magic">
-					<label for="emailAddress">Email</label></td>
-				<td class="html7magic">
-					<label for="password">Password</label></td>
+				<td class="html7magic"><label for="emailAddress">Email</label></td>
+				<td class="html7magic"><label for="password">Password</label></td>
 			</tr>
 			<tr>
-				<td>
-					<input name="emailAddress" size="20" type="text" /></td>
-				<td>
-					<input name="password" size="20" type="text" /></td>
-				<td>
-					<input tabindex="4" type="submit" value="Login" /></td>
+				<td><input name="emailAddress" size="20" type="text" /></td>
+				<td><input name="password" size="20" type="text" /></td>	
+				<td><input tabindex="4" type="submit" value="Login" /></td>
 			</tr>
 			<tr>
-				<td class="login_form_label_field">
-					<a href="http://www.html.am/recover">Forgot your password?</a></td>
+				<td class="login_form_label_field"><a href="http://www.html.am/recover">Forgot your password?</a></td>
 			</tr>
 		</tbody>
 	</table>
+	<input class="inputtext" id="reg_passwd__" name="reg_passwd__" type="password" value="" />
 </form>
 </div>
 
 
-<form action="RegistrationConfirmation" id="signupForm" method="POST">
+<form action="CreateAccount" id="signupForm" method="POST">
 	<div class="mbs mainTitle fsl fwb fcb" style="text-align: right; ">Not Registered? No Problem!</div>
 	<div id="registration_container">
 		<table align="right" cellpadding="1" cellspacing="0" class="uiGrid editor">

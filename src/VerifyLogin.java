@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class HomeServlet
  */
-@WebServlet("/TestServlet")
-public class TestServlet extends HttpServlet {
+@WebServlet("/VerifyLogin")
+public class VerifyLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TestServlet() {
+    public VerifyLogin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,14 +34,15 @@ public class TestServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String email = request.getParameter("emailAddress").toString();
+		String pass = request.getParameter("password").toString();
 
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        String email = request.getParameter("emailAddress").toString();
-        //String password = request.getParameter("password").toString();
-   
-        request.getRequestDispatcher("/page_home.jsp").forward(request, response);
-        
+		if (DBOperation.isValidLogin(email, pass)) {
+			request.getRequestDispatcher("/page_home.jsp").forward(request, response);
+		} else {
+			// Something is wrong. Go back to index.
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
 	}
 
 }
