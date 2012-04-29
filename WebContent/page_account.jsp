@@ -1,5 +1,5 @@
 <html>
-<body>
+<body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
 
 <h1 style="text-align:center; color:blue">Account Info</h1>
 
@@ -7,9 +7,6 @@
   <tbody>
     <tr>
       <th><a href="page_changePW.jsp">change password</a></th>
-    </tr>
-    <tr>
-      <th><a href="page_orderHist.jsp">order history</a></th>
     </tr>
     <tr>
       <th><a href="page_savedItem.jsp">saved items</a></th>

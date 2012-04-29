@@ -1,5 +1,5 @@
 <html>
-<body>
+<body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
 
 <h1>This is the browse page</h1>
 <p>Item 1</p>
