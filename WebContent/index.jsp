@@ -24,7 +24,7 @@ body
 			</tr>
 			<tr>
 				<td><input name="emailAddress" size="20" type="text" /></td>
-				<td><input name="password" size="20" type="text" /></td>	
+				<td><input name="password" size="20" type="password" /></td>	
 				<td><input tabindex="4" type="submit" value="Login" /></td>
 			</tr>
 			<tr>
@@ -32,7 +32,6 @@ body
 			</tr>
 		</tbody>
 	</table>
-	<input class="inputtext" id="reg_passwd__" name="reg_passwd__" type="password" value="" />
 </form>
 </div>
 
