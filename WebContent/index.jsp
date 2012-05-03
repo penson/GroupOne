@@ -92,12 +92,6 @@ body
 	<input tabindex="4" type="submit" value="Submit" /></p>
 </form>
         
-<div align="center"><h2>V1.0</h2></div>
-
-<%
-	// This scriptlet declares and initializes "date"
-	System.out.println( "Evaluating date now" );
-	java.util.Date date = new java.util.Date();
-%>
+<div align="center"><h2>V2.0</h2></div>
 </body>
 </html>
