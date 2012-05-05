@@ -55,7 +55,36 @@ public class DBOperation {
 		return true;
 	}
 	
+	public static boolean isVendor(String email) {
+		email = email.toUpperCase();
+		boolean found = false;
+		Connection con = new DBConnection().getDBConnection();
+		String sqlCmd = "SELECT acctType FROM account "
+						+ "WHERE email = '" + email + "' "
+						+ "AND acctType = 'V'";
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sqlCmd);
+			
+			while (rs.next()) {
+				found = true;
+			}
+			
+			rs.close();
+			stmt.close();
+			con.close();
+			
+		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return found;
+	}
 	
+	public static Account getAccount(String email, String pass) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

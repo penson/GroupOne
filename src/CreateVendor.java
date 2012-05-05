@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CreateAccount
  */
-@WebServlet("/CreateAccount")
-public class CreateAccount extends HttpServlet {
+@WebServlet("/CreateVendor")
+public class CreateVendor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreateAccount() {
+    public CreateVendor() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,12 +32,11 @@ public class CreateAccount extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String firstName = request.getParameter("firstname").toString();
-		String lastName = request.getParameter("lastname").toString();
 		String email = request.getParameter("reg_email__").toString();
 		String email2 = request.getParameter("reg_email_confirmation__").toString();
 		String pass = request.getParameter("reg_passwd__").toString();
 
-		if (DBOperation.createAccount(firstName, lastName, email, pass, "C")) {
+		if (DBOperation.createAccount(firstName, "", email, pass, "V")) {
 			request.getRequestDispatcher("/page_home.jsp").forward(request, response);
 		} else {
 			// Something is wrong. Go back to index.
