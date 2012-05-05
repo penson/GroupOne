@@ -6,7 +6,7 @@
 <table style="text-align: center; width: 50%; height: 50%;" frame="border" cellpadding="5">
   <tbody>
     <tr>
-		<td><a href="page_allDeals.jsp"><img src="http://s3.grouponcdn.com/images/site_images/2143/0614/Kalani-01_wide.jpg" alt="Travel" width="340" height="207"/></a></td>
+		<td><a href="page_allDeals.jsp"><img src="http://s3.grouponcdn.com/images/site_images/2143/0614/Kalani-01_wide.jpg" alt="Travel" title = "Travel" width="340" height="207"/></a></td>
       	<td><a href="page_allDeals.jsp"><img src="http://s3.grouponcdn.com/images/site_images/2151/5991/servlet_grid_6.jpg" alt="Food" width="340" height="207"/></a></td>
       	<td><a href="page_allDeals.jsp"><img src="http://s3.grouponcdn.com/images/site_images/2157/7960/IMAGE-Aarons-Moving2_grid_6.jpg" alt="Moving" width="340" height="207"/></a></td>
     </tr>

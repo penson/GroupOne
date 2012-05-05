@@ -88,9 +88,9 @@ id="reg_passwd__" name="reg_passwd__" value="" type="password"></div>
 <td>
 </td>
 <td>
-<div class="select"> <select for="type">
-<option value="customer">Customer</option>
-<option value="vendor">Vendor</option>
+<div class="select"> <select for="option">
+<option value="C">Customer</option>
+<option value="V">Vendor</option>
 </select>
 </td>
 </tr>
