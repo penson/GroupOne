@@ -86,9 +86,36 @@ public class DBOperation {
 		return null;
 	}
 	
+	public static ArrayList<Coupon> getCouponList() {
+		Connection con = new DBConnection().getDBConnection();
+		ArrayList<Coupon> coupons = new ArrayList<Coupon>();
+		
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM coupon");
+			
+			// Get result set meta data
+		    ResultSetMetaData rsmd = rs.getMetaData();
+		    int numColumns = rsmd.getColumnCount();
+		    
+			while(rs.next()) {
+				Coupon coupon = new Coupon();
+				coupon.id = rs.getString(1);
+				coupon.title = rs.getString(2);
+				coupon.createDate = rs.getString(3);
+				coupon.expireDate = rs.getString(4);
+				coupon.quantity = rs.getString(5);
+				coupon.price = rs.getString(6);
+				coupon.category = rs.getString(7);
+				coupon.sold = rs.getString(8);
+				coupons.add(coupon);
+			}
+		} catch(SQLException e) {}
+		
+		return coupons;
+	}
 	
 	
-
 	public static ArrayList<String> queryToArrayList(String sqlCmd) {
 		Connection con = new DBConnection().getDBConnection();
 		ArrayList<String> list = new ArrayList<String>();
@@ -110,6 +137,8 @@ public class DBOperation {
 		
 		return list;
 	}
+	
+	
 	
 	public static DefaultListModel<String> queryToDefaultListModel(String sqlCmd) {
 		Connection con = new DBConnection().getDBConnection();

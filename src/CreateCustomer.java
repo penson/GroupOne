@@ -31,11 +31,11 @@ public class CreateCustomer extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String firstName = request.getParameter("firstname").toString();
-		String lastName = request.getParameter("lastname").toString();
-		String email = request.getParameter("reg_email__").toString();
-		String email2 = request.getParameter("reg_email_confirmation__").toString();
-		String pass = request.getParameter("reg_passwd__").toString();
+		String firstName = request.getParameter("c_firstname").toString();
+		String lastName = request.getParameter("c_lastname").toString();
+		String email = request.getParameter("c_reg_email__").toString();
+		String email2 = request.getParameter("c_reg_email_confirmation__").toString();
+		String pass = request.getParameter("c_reg_passwd__").toString();
 
 		if (DBOperation.createAccount(firstName, lastName, email, pass, "C")) {
 			request.getRequestDispatcher("/page_home.jsp").forward(request, response);

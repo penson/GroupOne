@@ -31,13 +31,13 @@ public class CreateVendor extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String firstName = request.getParameter("firstname").toString();
-		String email = request.getParameter("reg_email__").toString();
-		String email2 = request.getParameter("reg_email_confirmation__").toString();
-		String pass = request.getParameter("reg_passwd__").toString();
+		String firstName = request.getParameter("v_firstname").toString();
+		String email = request.getParameter("v_reg_email__").toString();
+		String email2 = request.getParameter("v_reg_email_confirmation__").toString();
+		String pass = request.getParameter("v_reg_passwd__").toString();
 
 		if (DBOperation.createAccount(firstName, "", email, pass, "V")) {
-			request.getRequestDispatcher("/page_home.jsp").forward(request, response);
+			request.getRequestDispatcher("/vendor.jsp").forward(request, response);
 		} else {
 			// Something is wrong. Go back to index.
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
