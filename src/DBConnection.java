@@ -1,4 +1,3 @@
-
 import java.sql.*;
 
 public class DBConnection {
@@ -7,6 +6,7 @@ public class DBConnection {
 	private Connection con;
 	private final String DB_DRIVER = "com.mysql.jdbc.Driver";
 	private final String DB_URL = "jdbc:mysql://75.52.121.36:3306/groupone";
+//	private final String DB_URL = "jdbc:mysql://192.168.1.135:3306/groupone";
 	private final String USER_ID = "sjsu";
 	private final String PASSWORD = "12345";
 
