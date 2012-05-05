@@ -41,7 +41,7 @@ href="http://www.html.am/recover">Forgot your password?</a></td>
 </table>
 </form>
 </div>
-<form action="CreateAccount" id="signupForm" method="post">
+<form action="CreateCustomer" id="signupForm" method="post">
 <div class="mbs mainTitle fsl fwb fcb" style="text-align: right;">Not
 Registered? No Problem!</div>
 <div id="registration_container">
@@ -49,51 +49,40 @@ Registered? No Problem!</div>
 cellspacing="0">
 <tbody>
 <tr>
-<td class="label"> <label for="firstname">First Name:</label></td>
+<td class="label"> <label for="c_firstname">First Name:</label></td>
 <td>
 <div class="field_container"> <input class="inputtext"
-id="firstname" name="firstname" type="text"></div>
+id="firstname" name="c_firstname" type="text"></div>
 </td>
 </tr>
 <tr>
-<td class="label"> <label for="lastname">Last Name:</label></td>
+<td class="label"> <label for="c_lastname">Last Name:</label></td>
 <td>
 <div class="field_container"> <input class="inputtext"
-id="lastname" name="lastname" type="text"></div>
+id="lastname" name="c_firstname" type="text"></div>
 </td>
 </tr>
 <tr>
-<td class="label"> <label for="reg_email__">Your Email:</label></td>
+<td class="label"> <label for="c_reg_email__">Your Email:</label></td>
 <td>
 <div class="field_container"> <input class="inputtext"
-id="reg_email__" name="reg_email__" type="text"></div>
+id="reg_email__" name="c_reg_email__" type="text"></div>
 </td>
 </tr>
 <tr>
-<td class="label"> <label for="reg_email_confirmation__">Re-enter
+<td class="label"> <label for="c_reg_email_confirmation__">Re-enter
 Email:</label></td>
 <td>
 <div class="field_container"> <input class="inputtext"
-id="reg_email_confirmation__" name="reg_email_confirmation__"
+id="reg_email_confirmation__" name="c_reg_email_confirmation__"
 type="text"></div>
 </td>
 </tr>
 <tr>
-<td class="label"> <label for="reg_passwd__">New Password:</label></td>
+<td class="label"> <label for="c_reg_passwd__">New Password:</label></td>
 <td>
 <div class="field_container"> <input class="inputtext"
-id="reg_passwd__" name="reg_passwd__" value="" type="password"></div>
-</td>
-</tr>
-<td>
-</td>
-<td>
-<div class="select"> <select for="option">
-<option value="C">Customer</option>
-<option value="V">Vendor</option>
-</select>
-</td>
-</tr>
+id="reg_passwd__" name="c_reg_passwd__" value="" type="password"></div>
 </tbody>
 </table>
 </div>
@@ -101,7 +90,54 @@ id="reg_passwd__" name="reg_passwd__" value="" type="password"></div>
 &nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
+<p>
+<p style="text-align: right;"> <input tabindex="4" value="Submit"
+type="submit"></p>
+</form>
+
+<!--  This is where the vendor will create account -->
+<form action="CreateVendor" id="signupForm" method="post">
+<div class="mbs mainTitle fsl fwb fcb" style="text-align: right;">Vendors! Register Here!!</div>
+<div id="registration_container">
+<table class="uiGrid editor" align="right" cellpadding="1"
+cellspacing="0">
+<tbody>
+<tr>
+<td class="label"> <label for="v_firstname">Company Name:</label></td>
+<td>
+<div class="field_container"> <input class="inputtext"
+id="companyname" name="v_firstname" type="text"></div>
+</td>
+</tr>
+<tr>
+<td class="label"> <label for="v_reg_email__">Your Email:</label></td>
+<td>
+<div class="field_container"> <input class="inputtext"
+id="reg_email__" name="v_reg_email__" type="text"></div>
+</td>
+</tr>
+<tr>
+<td class="label"> <label for="v_reg_email_confirmation__">Re-enter
+Email:</label></td>
+<td>
+<div class="field_container"> <input class="inputtext"
+id="reg_email_confirmation__" name="v_reg_email_confirmation__"
+type="text"></div>
+</td>
+</tr>
+<tr>
+<td class="label"> <label for="v_reg_passwd__">New Password:</label></td>
+<td>
+<div class="field_container"> <input class="inputtext"
+id="reg_passwd__" name="v_reg_passwd__" value="" type="password"></div>
+</tbody>
+</table>
+</div>
+<br>
+&nbsp;</p>
 <p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>
 <p style="text-align: right;"> <input tabindex="4" value="Submit"
 type="submit"></p>
 </form>
