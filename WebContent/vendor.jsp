@@ -6,7 +6,7 @@
 <script type="text/javascript">
 function showOption(id)
 {
-	sites = ['http://localhost:8080/GroupOne/add_coupon.jsp', 'http://localhost:8081/GroupOne/DeleteCouponPage']
+	sites = ['http://localhost:8080/GroupOne/add_coupon.jsp','http://localhost:8081/GroupOne/DeleteCouponPage']
 	var site = sites[id];
 	
 	document.getElementById('f1').src = site;
