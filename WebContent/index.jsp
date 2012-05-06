@@ -35,7 +35,7 @@ alt="GroupOne logo" class="logo img" src="http://i.imgur.com/cLLbp.png">
 </tr>
 <tr>
 <td class="login_form_label_field"><a
-href="http://www.html.am/recover">Forgot your password?</a></td>
+href="page_forgetPassword.jsp">Forgot your password?</a></td>
 </tr>
 </tbody>
 </table>
