@@ -39,33 +39,50 @@ public class SelectBrowseCatalog extends HttpServlet {
 		// TODO Auto-generated method stub
 		String name = request.getParameter("catalogBtn");
 		PrintWriter out = response.getWriter();
-		System.out.println("doPost!");
 		
 		if(name.equals("Travel")) {
+			//request.setAttribute("catalog", "Travel");
+			//request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
 			displayCoupon(out, "Travel");
 		}
 		else if(name.equals("Food")) {
+			//request.setAttribute("catalog", "Food");
+			//request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
 			displayCoupon(out, "Food");
 		}
 		else if(name.equals("Moving")) {
+			//request.setAttribute("catalog", "Moving");
+			//request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
 			displayCoupon(out, "Moving");
 		}
 		else if(name.equals("Health")) {
+			//request.setAttribute("catalog", "Health");
+			//request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
 			displayCoupon(out, "Health");
 		}
 		else if(name.equals("Photography")) {
+			//request.setAttribute("catalog", "Photography");
+			//request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
 			displayCoupon(out, "Photography");
 		}
 		else if(name.equals("Footwear")) {
+			//request.setAttribute("catalog", "Footwear");
+			//request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
 			displayCoupon(out, "Footwear");
 		}
 		else if(name.equals("Magazine")) {
+			//request.setAttribute("catalog", "Magazine");
+			//request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
 			displayCoupon(out, "Magazine");
 		}
 		else if(name.equals("Home Decorating")) {
+			//request.setAttribute("catalog", "Home Decorating");
+			//request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
 			displayCoupon(out, "Home Decorating");
 		}
 		else {
+			//request.setAttribute("catalog", "Other");
+			//request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
 			displayCoupon(out, "Other");		
 		}	
 	}
@@ -75,7 +92,6 @@ public class SelectBrowseCatalog extends HttpServlet {
 		ArrayList<Coupon> filtered = new ArrayList<Coupon>();
 		
 		for(Coupon c : allCoupons) {
-			System.out.println(c.category);
 			if(c.category.equalsIgnoreCase(name))
 				filtered.add(c);
 		}

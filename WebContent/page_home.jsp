@@ -6,20 +6,34 @@
 </head>
 <body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
 
-<h1 style="text-align:center; color:blue"> Welcome to Groupon</h1>
+<h1 style="text-align:center; color:blue"> Groupone's Groupon</h1>
 
-<table style="text-align: center; width: 100%;" border="0"
- cellpadding="2" cellspacing="2">
-  <tbody>
-    <tr>
-      <th><a href="page_browse.jsp">Browse</a></th>
-      <th><a href="page_orderHist.jsp">Order History</a>
-      <th><a href="page_account.jsp">Account</a></th>
-      <th><a href="index.jsp">Log-out</a></th>
-    </tr>
-  </tbody>
-</table>
+<%
+	try {
+		String email = request.getAttribute("loginAcct").toString();
+		out.write("<p style='text-align:center; color:blue'>Welcome "+email+"</p>");
+	}
+	catch (Exception e){
+		out.write(e.toString());
+	}
+%>
+
+
+<form id="homePage"; action="HomePage"; method="post">
+	<table style="text-align: center; width: 100%;" border="0"
+ 	cellpadding="2" cellspacing="2">	
+  		<tbody>
+    	<tr>
+      		<th><input type="submit" name="button" value="Browse"></th>
+      		<th><input type="submit" name="button" value="Order History"></th>
+      		<th><input type="submit" name="button" value="Account"></th>
+      		<th><input type="submit" name="button" value="Log Out"></th>
+    	</tr>
+  		</tbody>
+	</table>
+</form>
 
 <center><img src="http://tctechcrunch2011.files.wordpress.com/2011/03/groupon-fb.png?w=640"/></center>
+
 </body>
 </html>

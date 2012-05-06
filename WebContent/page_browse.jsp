@@ -1,7 +1,7 @@
 <html>
 <body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
 
-<h1 style="text-align:center; color:red">Choose your favorite catalog to browse</h1>
+<h1 style="text-align:center; color:gray">Choose a catalog to browse</h1>
 
 <form id="browseCatalog" action="SelectBrowseCatalog" method="post">
 <table style="text-align: center; width: 50%; height: 50%;" frame="border" cellpadding="5">
@@ -41,6 +41,7 @@
 </form>
 
 <p><a href="page_home.jsp">Back</a></p>
+
 
 </body>
 </html>
