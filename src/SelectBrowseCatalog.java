@@ -39,6 +39,7 @@ public class SelectBrowseCatalog extends HttpServlet {
 		// TODO Auto-generated method stub
 		String name = request.getParameter("catalogBtn");
 		PrintWriter out = response.getWriter();
+		System.out.println("doPost!");
 		
 		if(name.equals("Travel")) {
 			displayCoupon(out, "Travel");
@@ -70,11 +71,13 @@ public class SelectBrowseCatalog extends HttpServlet {
 	}
 	
 	public void displayCoupon(PrintWriter out, String name) {
-		ArrayList<Coupon> coupons = DBOperation.getCouponList();
+		ArrayList<Coupon> allCoupons = DBOperation.getCouponList();
+		ArrayList<Coupon> filtered = new ArrayList<Coupon>();
 		
-		for(Coupon c : coupons) {
-			if(!c.category.equalsIgnoreCase(name))
-				coupons.remove(c);
+		for(Coupon c : allCoupons) {
+			System.out.println(c.category);
+			if(c.category.equalsIgnoreCase(name))
+				filtered.add(c);
 		}
 		
 		out.println("<html>");
@@ -82,9 +85,10 @@ public class SelectBrowseCatalog extends HttpServlet {
 		out.println("<title>Coupons</title>");
 		out.println("</head>");
 		out.println("<body>");
+		out.println("<h1>"+name+"</h1>");
 		out.println("<TABLE cellpadding=\"15\" border=\"1\" style=\"background-color: #ffffcc;\">");
 		
-        for (Coupon c : coupons) {
+        for (Coupon c : filtered) {
         	out.println("<TR>");
         	out.println("<TD>" + c.id + "</TD>");
         	out.println("<TD>" + c.title + "</TD>");
@@ -97,7 +101,8 @@ public class SelectBrowseCatalog extends HttpServlet {
         	out.println("</TR>");
         }
         out.println("</TABLE>");
-        out.println("<a href='page_home.jsp'>Back</a>");
+        out.println("<p><a href='page_browse.jsp'>Back</a></p>");
+        out.println("<p><a href='page_home.jsp'>Back to home</a></p>");
         out.println("</body>");
         out.println("</html>");			
 	}		
