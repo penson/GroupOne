@@ -34,7 +34,7 @@
     <tr>
     	<td><input type="submit" name="catalogBtn" value="Magazine"></td>
     	<td><input type="submit" name="catalogBtn" value="Home Decorating"></td>
-    	<td><input type="submit" name="catalogBtn" value="All Deals"></td>
+    	<td><input type="submit" name="catalogBtn" value="Other"></td>
     </tr>
   </tbody>
 </table>

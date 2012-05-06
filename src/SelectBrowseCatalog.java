@@ -1,6 +1,9 @@
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,42 +38,68 @@ public class SelectBrowseCatalog extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String name = request.getParameter("catalogBtn");
+		PrintWriter out = response.getWriter();
+		
 		if(name.equals("Travel")) {
-			System.out.println("Travel clicked");
-			request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
+			displayCoupon(out, "Travel");
 		}
 		else if(name.equals("Food")) {
-			System.out.println("Food clicked");
-			request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
+			displayCoupon(out, "Food");
 		}
 		else if(name.equals("Moving")) {
-			System.out.println("Moving clicked");
-			request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
+			displayCoupon(out, "Moving");
 		}
 		else if(name.equals("Health")) {
-			System.out.println("Health clicked");
-			request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
+			displayCoupon(out, "Health");
 		}
 		else if(name.equals("Photography")) {
-			System.out.println("Photography clicked");
-			request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
+			displayCoupon(out, "Photography");
 		}
 		else if(name.equals("Footwear")) {
-			System.out.println("Footwear clicked");
-			request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
+			displayCoupon(out, "Footwear");
 		}
 		else if(name.equals("Magazine")) {
-			System.out.println("Magazine clicked");
-			request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
+			displayCoupon(out, "Magazine");
 		}
 		else if(name.equals("Home Decorating")) {
-			System.out.println("Home Decorating clicked");
-			request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
+			displayCoupon(out, "Home Decorating");
 		}
 		else {
-			System.out.println("Other clicked");
-			request.getRequestDispatcher("/page_displayCoupon.jsp").forward(request, response);
-		}
+			displayCoupon(out, "Other");		
+		}	
 	}
+	
+	public void displayCoupon(PrintWriter out, String name) {
+		ArrayList<Coupon> coupons = DBOperation.getCouponList();
+		
+		for(Coupon c : coupons) {
+			if(!c.category.equalsIgnoreCase(name))
+				coupons.remove(c);
+		}
+		
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<title>Coupons</title>");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("<TABLE cellpadding=\"15\" border=\"1\" style=\"background-color: #ffffcc;\">");
+		
+        for (Coupon c : coupons) {
+        	out.println("<TR>");
+        	out.println("<TD>" + c.id + "</TD>");
+        	out.println("<TD>" + c.title + "</TD>");
+        	out.println("<TD>" + c.createDate + "</TD>");
+        	out.println("<TD>" + c.expireDate+ "</TD>");
+        	out.println("<TD>" + c.quantity + "</TD>");
+        	out.println("<TD>" + c.sold + "</TD>");
+        	out.println("<TD>" + c.price + "</TD>");
+        	out.println("<TD>" + c.category + "</TD>");
+        	out.println("</TR>");
+        }
+        out.println("</TABLE>");
+        out.println("<a href='page_home.jsp'>Back</a>");
+        out.println("</body>");
+        out.println("</html>");			
+	}		
 
 }
