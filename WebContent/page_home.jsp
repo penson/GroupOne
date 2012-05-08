@@ -8,16 +8,6 @@
 
 <h1 style="text-align:center; color:blue"> Groupone's Groupon</h1>
 
-<%
-	try {
-		String email = request.getAttribute("loginAcct").toString();
-		out.write("<p style='text-align:center; color:blue'>Welcome "+email+"</p>");
-	}
-	catch (Exception e){
-		out.write(e.toString());
-	}
-%>
-
 
 <form id="homePage"; action="HomePage"; method="post">
 	<table style="text-align: center; width: 100%;" border="0"
@@ -31,6 +21,8 @@
     	</tr>
   		</tbody>
 	</table>
+	
+	<input type="hidden" name="email" value="${email}"/>
 </form>
 
 <center><img src="http://tctechcrunch2011.files.wordpress.com/2011/03/groupon-fb.png?w=640"/></center>
