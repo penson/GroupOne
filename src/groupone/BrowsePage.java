@@ -14,14 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class SelectBrowseCatalog
  */
-@WebServlet("/SelectBrowseCatalog")
-public class SelectBrowseCatalog extends HttpServlet {
+@WebServlet("/BrowsePage")
+public class BrowsePage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectBrowseCatalog() {
+    public BrowsePage() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -3,7 +3,7 @@
 
 <h1 style="text-align:center; color:gray">Choose a catalog to browse</h1>
 
-<form id="browseCatalog" action="SelectBrowseCatalog" method="post">
+<form id="browseCatalog" action="BrowsePage" method="post">
 <table style="text-align: center; width: 50%; height: 50%;" frame="border" cellpadding="5">
   <tbody>
     <tr>

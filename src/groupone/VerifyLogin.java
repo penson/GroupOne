@@ -56,6 +56,7 @@ public class VerifyLogin extends HttpServlet {
 			
 		} else {
 			// Something is wrong. Go back to index.
+			request.setAttribute("errorMsg", "There is a log-in error");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 	}

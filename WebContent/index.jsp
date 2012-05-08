@@ -23,6 +23,7 @@ background-image:url('http://assets2.grouponcdn.com/images/groupon/landing_pages
 class="lfloat" href="/GroupOne/index.jsp" title="Go to GroupOne Home"><img
 alt="GroupOne logo" class="logo img" src="http://i.imgur.com/cLLbp.png">
 </a>
+
 <table align="right" cellspacing="0">
 <tbody>
 <tr>
@@ -37,6 +38,9 @@ alt="GroupOne logo" class="logo img" src="http://i.imgur.com/cLLbp.png">
 <tr>
 <td class="login_form_label_field"><a
 href="page_forgetPassword.jsp">Forgot your password?</a></td>
+</tr>
+<tr>
+<p style="color:red">${errorMsg}</p>
 </tr>
 </tbody>
 </table>
