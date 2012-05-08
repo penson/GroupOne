@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class HomeServlet
@@ -36,6 +37,7 @@ public class VerifyLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(true);
 		String email = request.getParameter("emailAddress").toString();
 		String pass = request.getParameter("password").toString();
 
@@ -44,8 +46,9 @@ public class VerifyLogin extends HttpServlet {
 			
 			request.setAttribute("account", account);
 			request.setAttribute("accountId", account.getId());
-			System.out.println("AccountId = " + request.getAttribute("accountId"));
-			if (DBOperation.isVendor(email)) {
+			session.setAttribute("accountId", email);
+			System.out.println("AccountId = " + session.getAttribute("accountId"));
+			if (DBOperation.isVendor(email)	) {
 				request.setAttribute("email", email);
 				request.getRequestDispatcher("/vendor.jsp").forward(request, response);
 			}

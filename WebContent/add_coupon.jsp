@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="groupone.*" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,6 +9,8 @@ http-equiv="content-type">
 <title></title>
 </head>
 <body>
+<%= session.getAttribute( "accountId" )%>
+<%System.out.println("Add Coupon ID: " + session.getAttribute( "accountId" ));%>
 <p>
 <p>
 <p>
@@ -78,10 +81,10 @@ id="firstname" name="title" type="text"></div>
 	<option value="31">31
 </select>
 <select name="year">
-	<option value="2002">2012
-	<option value="2003">2013
-	<option value="2004">2014
-	<option value="2005">2015
+	<option value="2012">2012
+	<option value="2013">2013
+	<option value="2014">2014
+	<option value="2015">2015
 </select>
 </div>
 </td>

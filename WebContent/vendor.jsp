@@ -21,7 +21,7 @@ function showOption(id)
 <body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
 
 <p>
-<form> <input name="option" value="addCoupon" type="radio" onclick="showOption(0)">Add a
+<form> <input name="option" value="AddCoupon" type="radio" onclick="showOption(0)">Add a
 Coupon<br>
 <input name="option" value="deleteCoupon" type="radio" onclick="showOption(1)"> Delete a
 Coupon
@@ -31,5 +31,10 @@ src=""
 marginheight="0" marginwidth="0" frameborder="0" height="500"
 width="600" scrolling = "no" ALLOWTRANSPARENCY="true">Loading...</iframe><br>
 </div>
+<%
+System.out.println("vendor ID is:" + session.getAttribute( "accountId" ));
+session.setAttribute("accountId", session.getAttribute( "accountId" ));
+System.out.println("Passing ID: " + session.getAttribute( "accountId" ));%>
+
 </body>
 </html>

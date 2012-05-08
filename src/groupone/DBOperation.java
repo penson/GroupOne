@@ -260,6 +260,37 @@ public class DBOperation {
 		}
 	}
 	
+	public static boolean AddCoupon(String title, String date, String quantity, String price, String category, String id)
+	{
+		title = title.toUpperCase();
+		date = date.toUpperCase();
+		quantity = quantity.toUpperCase();
+		price = quantity.toUpperCase();
+		category = category.toUpperCase();
+		id = id.toUpperCase();
+		
+		Connection con = new DBConnection().getDBConnection();
+		
+		String sqlCmd = "INSERT INTO coupon (title, expiredate, quantity, price, category, idVendor)"
+				+ "VALUES ('" + title + "', '" + date + "', '" + quantity + "', '" + price + "', '" + category + "' , '" + id + "')";
+		try 
+		{
+			Statement stmt = con.createStatement();
+			int rs = stmt.executeUpdate(sqlCmd);
+
+			stmt.close();
+			con.close();
+			
+		} 
+		catch(SQLException e) 
+		{
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+		
+	}
+	
 }
 
 
