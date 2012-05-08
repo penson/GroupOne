@@ -1,3 +1,4 @@
+package groupone;
 
 
 import java.io.IOException;
@@ -92,7 +93,7 @@ public class SelectBrowseCatalog extends HttpServlet {
 		ArrayList<Coupon> filtered = new ArrayList<Coupon>();
 		
 		for(Coupon c : allCoupons) {
-			if(c.category.equalsIgnoreCase(name))
+			if(c.getCategory().equalsIgnoreCase(name))
 				filtered.add(c);
 		}
 		
@@ -106,14 +107,14 @@ public class SelectBrowseCatalog extends HttpServlet {
 		
         for (Coupon c : filtered) {
         	out.println("<TR>");
-        	out.println("<TD>" + c.id + "</TD>");
-        	out.println("<TD>" + c.title + "</TD>");
-        	out.println("<TD>" + c.createDate + "</TD>");
-        	out.println("<TD>" + c.expireDate+ "</TD>");
-        	out.println("<TD>" + c.quantity + "</TD>");
-        	out.println("<TD>" + c.sold + "</TD>");
-        	out.println("<TD>" + c.price + "</TD>");
-        	out.println("<TD>" + c.category + "</TD>");
+        	out.println("<TD>" + c.getId() + "</TD>");
+        	out.println("<TD>" + c.getTitle() + "</TD>");
+        	out.println("<TD>" + c.getCreateDate() + "</TD>");
+        	out.println("<TD>" + c.getExpireDate()+ "</TD>");
+        	out.println("<TD>" + c.getQuantity() + "</TD>");
+        	out.println("<TD>" + c.getSold() + "</TD>");
+        	out.println("<TD>" + c.getPrice() + "</TD>");
+        	out.println("<TD>" + c.getCategory() + "</TD>");
         	out.println("</TR>");
         }
         out.println("</TABLE>");

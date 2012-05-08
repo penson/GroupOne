@@ -1,3 +1,5 @@
+package groupone;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -80,12 +82,7 @@ public class DBOperation {
 		
 		return found;
 	}
-	
-	public static Account getAccount(String email, String pass) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+
 	public static ArrayList<Coupon> getCouponList() {
 		Connection con = new DBConnection().getDBConnection();
 		ArrayList<Coupon> coupons = new ArrayList<Coupon>();
@@ -100,14 +97,15 @@ public class DBOperation {
 		    
 			while(rs.next()) {
 				Coupon coupon = new Coupon();
-				coupon.id = rs.getString(1);
-				coupon.title = rs.getString(2);
-				coupon.createDate = rs.getString(3);
-				coupon.expireDate = rs.getString(4);
-				coupon.quantity = rs.getString(5);
-				coupon.price = rs.getString(6);
-				coupon.category = rs.getString(7);
-				coupon.sold = rs.getString(8);
+				coupon.setId(rs.getString(1));
+				coupon.setTitle(rs.getString(2));
+				coupon.setCreateDate(rs.getString(3));
+				coupon.setExpireDate(rs.getString(4));
+				coupon.setQuantity(rs.getString(5));
+				coupon.setPrice(rs.getString(6));
+				coupon.setCategory(rs.getString(7));
+				coupon.setSold(rs.getString(8));
+				coupon.setVendor(rs.getString(9));
 				coupons.add(coupon);
 			}
 		} catch(SQLException e) {}
@@ -115,6 +113,57 @@ public class DBOperation {
 		return coupons;
 	}
 	
+	public static ArrayList<Account> getAccountList() {
+		Connection con = new DBConnection().getDBConnection();
+		ArrayList<Account> accounts = new ArrayList<Account>();
+		
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM account");
+			
+			// Get result set meta data
+		    ResultSetMetaData rsmd = rs.getMetaData();
+		    int numColumns = rsmd.getColumnCount();
+		    
+			while(rs.next()) {
+				Account account = new Account();
+				account.setId(rs.getString(1));
+				account.setEmail(rs.getString(2));
+				account.setPassword(rs.getString(3));
+				account.setFirstName(rs.getString(4));
+				account.setLastName(rs.getString(5));
+				
+				accounts.add(account);
+			}
+		} catch(SQLException e) {}
+		
+		return accounts;
+	}
+	
+	public static Account getAccount(String email, String pass) {
+		email = email.toUpperCase();
+		Connection con = new DBConnection().getDBConnection();
+		Account account = new Account();
+		
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM account WHERE email = '" + email + "' AND password = '" + pass + "'");
+			
+			// Get result set meta data
+		    ResultSetMetaData rsmd = rs.getMetaData();
+		    int numColumns = rsmd.getColumnCount();
+		    
+			while(rs.next()) {
+				account.setId(rs.getString(1));
+				account.setEmail(rs.getString(2));
+				account.setPassword(rs.getString(3));
+				account.setFirstName(rs.getString(4));
+				account.setLastName(rs.getString(5));
+			}
+		} catch(SQLException e) {}
+		
+		return account;
+	}
 	
 	public static ArrayList<String> queryToArrayList(String sqlCmd) {
 		Connection con = new DBConnection().getDBConnection();

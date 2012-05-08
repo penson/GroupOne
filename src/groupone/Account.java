@@ -1,5 +1,6 @@
+package groupone;
 
-public abstract class Account {
+public class Account {
 	private String id;
 	private String email;
 	private String password;

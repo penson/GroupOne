@@ -1,4 +1,9 @@
+package groupone;
+
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -6,16 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CreateAccount
+ * Servlet implementation class HomeServlet
  */
-@WebServlet("/CreateVendor")
-public class CreateVendor extends HttpServlet {
+@WebServlet("/VerifyLogin")
+public class VerifyLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreateVendor() {
+    public VerifyLogin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,18 +36,28 @@ public class CreateVendor extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String firstName = request.getParameter("v_firstname").toString();
-		String email = request.getParameter("v_reg_email__").toString();
-		String email2 = request.getParameter("v_reg_email_confirmation__").toString();
-		String pass = request.getParameter("v_reg_passwd__").toString();
+		String email = request.getParameter("emailAddress").toString();
+		String pass = request.getParameter("password").toString();
 
-		if (DBOperation.createAccount(firstName, "", email, pass, "V")) {
-			request.getRequestDispatcher("/vendor.jsp").forward(request, response);
+		if (DBOperation.isValidLogin(email, pass)) {
+			Account account = DBOperation.getAccount(email, pass);
+			
+			request.setAttribute("account", account);
+			request.setAttribute("accountId", account.getId());
+			System.out.println("AccountId = " + request.getAttribute("accountId"));
+			if (DBOperation.isVendor(email)) {
+				request.setAttribute("loginAcct", email);
+				request.getRequestDispatcher("/vendor.jsp").forward(request, response);
+			}
+			else {
+				request.setAttribute("loginAcct", email);
+				request.getRequestDispatcher("/page_home.jsp").forward(request, response);
+			}
+			
 		} else {
 			// Something is wrong. Go back to index.
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
-        
 	}
 
 }

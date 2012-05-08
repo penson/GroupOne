@@ -1,3 +1,4 @@
+package groupone;
 import java.sql.*;
 
 public class DBConnection {
