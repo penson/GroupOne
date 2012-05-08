@@ -46,7 +46,7 @@ public class VerifyLogin extends HttpServlet {
 			
 			request.setAttribute("account", account);
 			request.setAttribute("accountId", account.getId());
-			session.setAttribute("accountId", email);
+			session.setAttribute("userEmail", email);
 			System.out.println("AccountId = " + session.getAttribute("accountId"));
 			if (DBOperation.isVendor(email)	) {
 				request.setAttribute("email", email);

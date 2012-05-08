@@ -260,19 +260,18 @@ public class DBOperation {
 		}
 	}
 	
-	public static boolean AddCoupon(String title, String date, String quantity, String price, String category, String id)
+	public static boolean AddCoupon(String title, String date, String quantity, String price, String category)
 	{
 		title = title.toUpperCase();
 		date = date.toUpperCase();
 		quantity = quantity.toUpperCase();
 		price = quantity.toUpperCase();
 		category = category.toUpperCase();
-		id = id.toUpperCase();
 		
 		Connection con = new DBConnection().getDBConnection();
 		
 		String sqlCmd = "INSERT INTO coupon (title, expiredate, quantity, price, category, idVendor)"
-				+ "VALUES ('" + title + "', '" + date + "', '" + quantity + "', '" + price + "', '" + category + "' , '" + id + "')";
+				+ "VALUES ('" + title + "', '" + date + "', '" + quantity + "', '" + price + "', '" + category + "')";
 		try 
 		{
 			Statement stmt = con.createStatement();
