@@ -107,7 +107,8 @@ public class BrowsePage extends HttpServlet {
 				filtered.add(c);
 		}
 		
-		coupons = filtered;
+		//for testing, don't change! =D
+		coupons = allCoupons;
 /*		
 		out.println("<html>");
 		out.println("<head>");

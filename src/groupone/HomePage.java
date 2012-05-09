@@ -7,6 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.Session;
 
 /**
  * Servlet implementation class HomePage
@@ -36,23 +39,18 @@ public class HomePage extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String e = request.getParameter("email");
+		HttpSession userSession = request.getSession(false);
+		email = userSession.getAttribute("userEmail").toString();
+		
 		String name = request.getParameter("button");
 		
-		if(e != null && !e.isEmpty()) {
-			email = e;
-		}
-		
 		if(name.equals("Browse")) {
-			request.setAttribute("email", email);
 			request.getRequestDispatcher("/page_browse.jsp").forward(request, response);
 		}
 		else if(name.equals("Order History")) {
-			request.setAttribute("email", email);
 			request.getRequestDispatcher("/page_orderHist.jsp").forward(request, response);
 		}
 		else if(name.equals("Account")) {
-			request.setAttribute("email", email);
 			request.getRequestDispatcher("/page_account.jsp").forward(request, response);
 		}
 		else {

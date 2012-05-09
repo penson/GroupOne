@@ -22,7 +22,6 @@
   		</tbody>
 	</table>
 	
-	<input type="hidden" name="email" value="${email}"/>
 </form>
 
 <center><img src="http://tctechcrunch2011.files.wordpress.com/2011/03/groupon-fb.png?w=640"/></center>

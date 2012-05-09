@@ -47,18 +47,16 @@ public class VerifyLogin extends HttpServlet {
 			request.setAttribute("account", account);
 			session.setAttribute("accountId", account.getId());
 			session.setAttribute("userEmail", email);
+			
 			if (DBOperation.isVendor(email)	) {
-				request.setAttribute("email", email);
 				request.getRequestDispatcher("/vendor.jsp").forward(request, response);
 			}
 			else {
-				request.setAttribute("email", email);
 				request.getRequestDispatcher("/page_home.jsp").forward(request, response);
 			}
 			
 		} else {
-			// Something is wrong. Go back to index.
-			request.setAttribute("errorMsg", "There is a log-in error");
+			request.setAttribute("errorMsg", "Wrong email/password");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 	}

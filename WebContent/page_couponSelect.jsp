@@ -16,7 +16,6 @@
 <form id="couponSelect" action="CouponSelect" method="post">
 <table style="text-align: center; width: 50%; height: 50%;" frame="border" cellpadding="5">
 <tbody>
-
 <%
 	ArrayList<Coupon> coupons = (ArrayList<Coupon>)request.getAttribute("coupons");
 
@@ -31,14 +30,15 @@
 		out.println("<TD>" + c.getSold() + "</TD>");
 		out.println("<TD>" + c.getPrice() + "</TD>");
 		out.println("<TD>" + c.getCategory() + "</TD>");
-		out.println("<TD><input type=\"button\" name=\"buyButton\" value=\"Buy\"></TD>");
+		out.println("<TD><input type=\"checkbox\" name=\"checkBox\" value=c.getId()></TD>");
 		out.println("</TR>");
 	}
 	out.println("</TABLE>");
 %>
-
 </tbody>
 </table>
+
+<p><input type="submit" value="Buy"></p>
 
 <p><a href="page_browse.jsp">Back</a></p>
 <p><a href="page_home.jsp">Back to home</a></p>
