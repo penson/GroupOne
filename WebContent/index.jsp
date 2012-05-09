@@ -121,7 +121,7 @@ id="reg_email__" name="v_reg_email__" type="text">
 </tr>
 
 <tr>
-<td>Re-enter Email:</label></td>
+<td>Re-enter Email:</td>
 <td><input class="inputtext"
 id="reg_email_confirmation__" name="v_reg_email_confirmation__"
 type="text">
@@ -129,7 +129,7 @@ type="text">
 </tr>
 
 <tr>
-<td>New Password:</label></td>
+<td>New Password:</td>
 <td><input class="inputtext"
 id="reg_passwd__" name="v_reg_passwd__" value="" type="password">
 </tbody>

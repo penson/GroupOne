@@ -7,15 +7,19 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
-	function testResult()
+	function comparePasswords()
 	{
-		var password = document.frm2.Password.value
-		var password2 = document.frm2.rPassword.value
-			if(password == password2){
-				alert("Password Match")
+		var password = document.reset.newPassword.value;
+		var password2 = document.reset.confirmPassword.value;
+		
+			if(password === password2)
+			{
+				return true;
 			}
-			else{
-				alert("Password Does Not Match")
+			else
+			{
+				alert("Password Does Not Match");
+				return false;
 			}
 
 	}
@@ -23,16 +27,40 @@
 
 </head>
 <body background = "http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
+<center><h1>
+<p>Reset Your Password</p></h1><h3>Enter your email address and select a new password</p>
+</h3>
+<p>&nbsp;
+</center>
+<form name="resetForm" action="ResetPassword" onSubmit="return comparePasswords()" method="post">
+<table align="center" cellpadding="1"
+cellspacing="2">
 
-	<h1><center>Forgot Password?</center></h1>
+<tbody>
+<tr>
+<td>Email Address:</td>
+<td><input class="inputtext"
+id="email" name="email" type="text">
+</td>
+</tr>
 
-	Enter Email Address: <textarea cols="50" rows="1" name="Old Email"></textarea><br><br>
-	<form name="frm2">
-	New Password: <textarea cols="50" rows="1" name="Password"></textarea><br><br>
-	Re-enter New Password: <textarea cols="50" rows="1" name="rPassword"></textarea><br><br>
-	<input type="button" value="Submit" onclick="testResult()" />
+<tr>
+<td>New Password:</td>
+<td><input class="inputtext"
+id="newPassword" name="newPassword"
+type="password">
+</td>
+</tr>
 
+<tr>
+<td>Confirm New Password:</td>
+<td><input class="inputtext"
+id="confirmPassword" name="confirmPassword" value="" type="password">
+</td>
+</tbody>
+</table>
+<p align="center">
+  <input value="Submit" type="submit">
 </form>
-
 </body>
 </html>
