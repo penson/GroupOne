@@ -9,11 +9,11 @@ function showOption(id)
 {
 	sites = ['/GroupOne/add_coupon.jsp','/GroupOne/DeleteCouponPage']
 	var site = sites[id];
-	
+
 	document.getElementById('f1').src = site;
 	document.getElementById('f1').style.visibility='visible';
 }
-	
+
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Vendor Page</title>
@@ -29,7 +29,7 @@ Coupon
 <div style="visibility:hidden"><iframe id="f1"
 src=""
 marginheight="0" marginwidth="0" frameborder="0" height="500"
-width="600" scrolling = "no" ALLOWTRANSPARENCY="true">Loading...</iframe><br>
+width="1200" scrolling = "yes" ALLOWTRANSPARENCY="true">Loading...</iframe><br>
 </div>
 </body>
 </html>
