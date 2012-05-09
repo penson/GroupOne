@@ -9,8 +9,8 @@ http-equiv="content-type">
 <title></title>
 </head>
 <body>
-<%= session.getAttribute( "userEmail" )%>
-<%System.out.println("Add Coupon ID: " + session.getAttribute( "userEmail" ));%>
+<p><b>${couponAdded}</b></p>
+<p><b>${couponError}</b></p>
 <p>
 <p>
 <p>

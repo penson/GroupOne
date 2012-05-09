@@ -31,10 +31,5 @@ src=""
 marginheight="0" marginwidth="0" frameborder="0" height="500"
 width="600" scrolling = "no" ALLOWTRANSPARENCY="true">Loading...</iframe><br>
 </div>
-<%
-System.out.println("vendor ID is:" + session.getAttribute( "userEmail" ));
-session.setAttribute("accountId", session.getAttribute( "userEmail" ));
-System.out.println("Passing ID: " + session.getAttribute( "userEmail" ));%>
-
 </body>
 </html>

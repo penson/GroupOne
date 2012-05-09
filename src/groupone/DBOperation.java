@@ -3,10 +3,12 @@ package groupone;
 import java.sql.*;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
 import javax.swing.DefaultListModel;
 
 public class DBOperation {
 	
+	  
 	public static boolean isValidLogin(String email, String pass) {
 		email = email.toUpperCase();
 		boolean found = false;
@@ -260,18 +262,20 @@ public class DBOperation {
 		}
 	}
 	
-	public static boolean AddCoupon(String title, String date, String quantity, String price, String category)
+	public static boolean AddCoupon(String title, String date, String quantity, String price, String category, String vendorId)
 	{
 		title = title.toUpperCase();
 		date = date.toUpperCase();
 		quantity = quantity.toUpperCase();
 		price = quantity.toUpperCase();
 		category = category.toUpperCase();
+		vendorId = vendorId.toUpperCase();
+		 
 		
 		Connection con = new DBConnection().getDBConnection();
 		
 		String sqlCmd = "INSERT INTO coupon (title, expiredate, quantity, price, category, idVendor)"
-				+ "VALUES ('" + title + "', '" + date + "', '" + quantity + "', '" + price + "', '" + category + "')";
+				+ "VALUES ('" + title + "', '" + date + "', '" + quantity + "', '" + price + "', '" + category + "', '" + vendorId + "')";
 		try 
 		{
 			Statement stmt = con.createStatement();

@@ -4,10 +4,6 @@
 <%@ page import="groupone.*" %>  
 <html>
 <head>
-<div><a> </a>
-<div><a>
-<meta http-equiv="Content-Type"
-content="text/html; charset=ISO-8859-1">
 <title>Welcome To GroupOne</title>
 <style type="text/css">
 body
@@ -40,7 +36,7 @@ alt="GroupOne logo" class="logo img" src="http://i.imgur.com/cLLbp.png">
 href="page_forgetPassword.jsp">Forgot your password?</a></td>
 </tr>
 <tr>
-<p style="color:red">${errorMsg}</p>
+<font color="red">${errorMsg}</font>
 </tr>
 </tbody>
 </table>

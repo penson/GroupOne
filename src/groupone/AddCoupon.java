@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class AddCoupon
@@ -34,7 +35,10 @@ public class AddCoupon extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-
+		
+		HttpSession userSession = request.getSession(false);
+		String vendorId = (String) userSession.getAttribute("accountId");
+				
 		String title = request.getParameter("title").toString();
 		String month = request.getParameter("month").toString();
 		String day = request.getParameter("day").toString();
@@ -45,7 +49,7 @@ public class AddCoupon extends HttpServlet {
 		String category = request.getParameter("category").toString();
 				
 		
-		if(DBOperation.AddCoupon(title, date, quantity, price, category))
+		if(DBOperation.AddCoupon(title, date, quantity, price, category, vendorId))
 		{
 			request.setAttribute("couponAdded", "Coupon has been added!");
 			request.getRequestDispatcher("/add_coupon.jsp").forward(request, response);
