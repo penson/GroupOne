@@ -25,7 +25,13 @@ for (Coupon c : coupons) {
 <TD><%=c.getSold()%></TD>
 <TD><%=c.getPrice()%></TD>
 <TD><%=c.getCategory()%></TD>
+<TD>
+<form action="DeleteCoupon" method="post">
+	<button name="couponDelete" value="<%=c.getId()%>" type="submit">Delete!</button>
+</form>
+</TD>
 </TR>
+
 <% } %>
 
 

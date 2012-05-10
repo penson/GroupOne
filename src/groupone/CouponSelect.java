@@ -34,11 +34,11 @@ public class CouponSelect extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String[] checkBoxes = request.getParameterValues("checkBox");
+		String couponId = request.getParameter("textBox");
+		Coupon coupon = DBOperation.searchCoupon(couponId);
 		
-		for(int i=0; i<checkBoxes.length; i++) {
-			System.out.println(checkBoxes[i]);
-		}
+		request.setAttribute("coupon", coupon);
+		request.getRequestDispatcher("/page_checkOut.jsp").forward(request, response);
 	}
 
 }

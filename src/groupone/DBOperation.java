@@ -167,6 +167,46 @@ public class DBOperation {
 		return account;
 	}
 	
+	public static void deleteCoupon(String couponId) {
+		Connection con = new DBConnection().getDBConnection();
+		Account account = new Account();
+		
+		try {
+			Statement stmt = con.createStatement();
+			int rs = stmt.executeUpdate("DELETE FROM coupon WHERE idCoupon = '" + couponId + "'");
+
+		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static Coupon searchCoupon(String couponId) {
+		Connection con = new DBConnection().getDBConnection();
+		String sqlCmd = "SELECT * FROM coupon WHERE idCoupon = '" + couponId + "'";
+		Coupon coupon = new Coupon();
+		
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sqlCmd);
+			
+			while(rs.next()) {
+				coupon.setId(rs.getString(1));
+				coupon.setTitle(rs.getString(2));
+				coupon.setCreateDate(rs.getString(3));
+				coupon.setExpireDate(rs.getString(4));
+				coupon.setQuantity(rs.getString(5));
+				coupon.setPrice(rs.getString(6));
+				coupon.setCategory(rs.getString(7));
+				coupon.setSold(rs.getString(8));
+				coupon.setVendor(rs.getString(9));
+			}
+		} catch(SQLException e) {
+			System.out.println(e.getMessage()+" from searchCoupon");
+		}
+		
+		return coupon;
+	}
+	
 	public static ArrayList<String> queryToArrayList(String sqlCmd) {
 		Connection con = new DBConnection().getDBConnection();
 		ArrayList<String> list = new ArrayList<String>();

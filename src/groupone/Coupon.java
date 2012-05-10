@@ -15,7 +15,7 @@ public class Coupon {
 		
 	}
 
-	String getVendor() {
+	public String getVendor() {
 		return vendor;
 	}
 

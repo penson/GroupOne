@@ -9,18 +9,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
 
 <h1>${catalog}</h1>
 
 <form id="couponSelect" action="CouponSelect" method="post">
-<table style="text-align: center; width: 50%; height: 50%;" frame="border" cellpadding="5">
-<tbody>
 <%
 	ArrayList<Coupon> coupons = (ArrayList<Coupon>)request.getAttribute("coupons");
 
-	out.println("<TABLE cellpadding=\"15\" border=\"1\" style=\"background-color: #ffffcc;\">");	
+	out.println("<TABLE cellpadding=\"15\" border=\"1\" style=\"background-color: #ffffcc;\">");
+	
+	out.println("<TR>");
+	out.println("<TD>ID</TD>");
+	out.println("<TD>Title</TD>");
+	out.println("<TD>Create Date</TD>");
+	out.println("<TD>Expire Date</TD>");
+	out.println("<TD>Quantity</TD>");
+	out.println("<TD>Sold</TD>");
+	out.println("<TD>Price</TD>");
+	out.println("<TD>Category</TD>");
+	out.println("</TR>");
+	
 	for (Coupon c : coupons) {
+		String id = c.getId();
 		out.println("<TR>");
 		out.println("<TD>" + c.getId() + "</TD>");
 		out.println("<TD>" + c.getTitle() + "</TD>");
@@ -30,14 +41,13 @@
 		out.println("<TD>" + c.getSold() + "</TD>");
 		out.println("<TD>" + c.getPrice() + "</TD>");
 		out.println("<TD>" + c.getCategory() + "</TD>");
-		out.println("<TD><input type=\"checkbox\" name=\"checkBox\" value=c.getId()></TD>");
+		out.println("<TD><input type=\"checkbox\" name=\"checkBox\" value=\"${coupons}\"></TD>");
 		out.println("</TR>");
 	}
 	out.println("</TABLE>");
 %>
-</tbody>
-</table>
 
+<p><input type="text" name="textBox"></p>
 <p><input type="submit" value="Buy"></p>
 
 <p><a href="page_browse.jsp">Back</a></p>

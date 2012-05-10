@@ -11,17 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class DeleteCouponPage
+ * Servlet implementation class DeleteCoupon
  */
-@WebServlet("/DeleteCouponPage")
-public class DeleteCouponPage extends HttpServlet {
+@WebServlet("/DeleteCoupon")
+public class DeleteCoupon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteCouponPage() {
+    public DeleteCoupon() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -34,7 +35,10 @@ public class DeleteCouponPage extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("CouponId: " + request.getParameter("couponDelete"));
+		DBOperation.deleteCoupon(request.getParameter("couponDelete"));
+		
         PrintWriter out = response.getWriter();
 
         ArrayList<Coupon> coupons = DBOperation.getCouponList();
@@ -53,28 +57,6 @@ public class DeleteCouponPage extends HttpServlet {
         
         request.setAttribute("coupons", filtered);
         request.getRequestDispatcher("/delete_coupon.jsp").forward(request, response);
-        
-//        out.println("<html>");
-//        out.println("<head>");
-//        out.println("<title>Delete Servlet</title>");
-//        out.println("</head>");
-//        out.println("<body>");
-//        out.println("<TABLE cellpadding=\"15\" border=\"1\" style=\"background-color: #ffffcc;\">");
-//        
-//        for (Coupon c : coupons) {
-//        	out.println("<TR>");
-//        	out.println("<TD>" + c.id + "</TD>");
-//        	out.println("<TD>" + c.title + "</TD>");
-//        	out.println("<TD>" + c.createDate + "</TD>");
-//        	out.println("<TD>" + c.expireDate+ "</TD>");
-//        	out.println("<TD>" + c.quantity + "</TD>");
-//        	out.println("<TD>" + c.sold + "</TD>");
-//        	out.println("<TD>" + c.price + "</TD>");
-//        	out.println("<TD>" + c.category + "</TD>");
-//        	out.println("</TR>");
-//        }
-//        out.println("</TABLE>");
-//        out.println("</body>");
-//        out.println("</html>");
 	}
+
 }
