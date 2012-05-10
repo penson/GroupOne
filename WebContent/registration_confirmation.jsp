@@ -6,24 +6,35 @@
 <style type="text/css">
 body
 {
-background-image:url('http://assets2.grouponcdn.com/images/groupon/landing_pages/bg-drinks.jpg');
+background-image:url('http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb');
 }
 </style>
 <head>
 <script type="text/javascript">
 
-function delayer(data)
+function delayer()
 {
-	self.location = "vendor.jsp";
-	
+	var type = <%=session.getAttribute( "userType" ) %>.value;
+	alert(type);
+	if(type == 'vendor')
+	{
+		window.location = "vendor.jsp"
+	}
+	else
+	{
+		window.location = "page_home.jsp"
+	}
 }
 
 </script>
 </head>
 
-<body onLoad="setTimeout('delayer(${v})', 1000)">
-<h2>Account Created Successfully!!</h2>
-<p>You will be redirected in 5 seconds.</p>
-
+<body onLoad="setTimeout('delayer()', 5000)">
+<p>
+<p>
+<center><h2>Account Created Successfully!!</h2>
+<p>You will be redirected in 5 seconds.</p></center>
+<input id="vendor" type="hidden" name="userType" value= <%=session.getAttribute( "userType" ) %>>
+<input id="customer" type="hidden" name="userType" value= <%=session.getAttribute( "userType" ) %>>
 </body>
 </html>

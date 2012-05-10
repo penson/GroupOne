@@ -43,7 +43,7 @@ public class CreateVendor extends HttpServlet {
 
 		if (DBOperation.createAccount(firstName, "", email, pass, "V")) 
 		{
-			request.setAttribute("v", "vendor");
+			session.setAttribute("userType", "vendor");
 			request.getRequestDispatcher("/registration_confirmation.jsp").forward(request, response);
 		} else {
 			// Something is wrong. Go back to index.

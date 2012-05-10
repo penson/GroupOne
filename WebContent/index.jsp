@@ -36,9 +36,11 @@ background-image:url('http://assets2.grouponcdn.com/images/groupon/landing_pages
 </tbody>
 </table>
   <a href="/GroupOne/index.jsp" title="Go to GroupOne Home"><img src="http://i.imgur.com/H0YFr.png"
-alt="GroupOne logo" hspace="0" vspace="0" align="left" class="logo img"></a><!-- This is where normal user will register -->
+alt="GroupOne logo" hspace="0" vspace="0" align="left" class="logo img"></a>
   </form>
 </div>
+
+<!-- This is where normal user will register -->
 <form action="CreateCustomer" id="signupForm" method="post">
   <div style="text-align: right;">
     <p>&nbsp;</p>
@@ -82,7 +84,8 @@ type="text">
 
 <tr>
 <td>New Password:</td>
-<td><input class="inputtext" id="reg_passwd__" name="c_reg_passwd__" value="" type="password">
+<td><input class="inputtext" id="reg_passwd__" name="c_reg_passwd__" value="" type="password"></td>
+</tr>
 </tbody>
 </table>
 <p>&nbsp;  </p>
