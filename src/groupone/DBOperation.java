@@ -175,9 +175,7 @@ public class DBOperation {
 			Statement stmt = con.createStatement();
 			int rs = stmt.executeUpdate("DELETE FROM coupon WHERE idCoupon = '" + couponId + "'");
 
-		} catch(SQLException e) {
-			System.out.println(e.getMessage());
-		}
+		} catch(SQLException e) {}
 	}
 	
 	public static Coupon searchCoupon(String couponId) {
@@ -200,11 +198,43 @@ public class DBOperation {
 				coupon.setSold(rs.getString(8));
 				coupon.setVendor(rs.getString(9));
 			}
-		} catch(SQLException e) {
-			System.out.println(e.getMessage()+" from searchCoupon");
-		}
+		} catch(SQLException e) {}
 		
 		return coupon;
+	}
+	
+	public static ArrayList<Coupon> searchCoupon(String[] couponIds) {
+		Connection con = new DBConnection().getDBConnection();
+		StringBuilder sqlCmd = new StringBuilder();
+		ArrayList<Coupon> coupons = new ArrayList<Coupon>();
+		
+		try {
+			Statement stmt = con.createStatement();
+			
+			for(int i=0; i<couponIds.length; i++) {
+				sqlCmd.delete(0, sqlCmd.length());
+				sqlCmd.append("SELECT * FROM coupon WHERE idCoupon = '" + couponIds[i] + "'");
+				ResultSet rs = stmt.executeQuery(sqlCmd.toString());
+				
+				while(rs.next()) {
+					Coupon coupon = new Coupon();
+					
+					coupon.setId(rs.getString(1));
+					coupon.setTitle(rs.getString(2));
+					coupon.setCreateDate(rs.getString(3));
+					coupon.setExpireDate(rs.getString(4));
+					coupon.setQuantity(rs.getString(5));
+					coupon.setPrice(rs.getString(6));
+					coupon.setCategory(rs.getString(7));
+					coupon.setSold(rs.getString(8));
+					coupon.setVendor(rs.getString(9));
+					
+					coupons.add(coupon);
+				}
+			}
+		} catch(SQLException e) {}
+		
+		return coupons;
 	}
 	
 	public static ArrayList<String> queryToArrayList(String sqlCmd) {
