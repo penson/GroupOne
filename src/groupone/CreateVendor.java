@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class CreateAccount
@@ -32,13 +33,18 @@ public class CreateVendor extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		HttpSession session = request.getSession(true);
+		
 		String firstName = request.getParameter("v_firstname").toString();
 		String email = request.getParameter("v_reg_email__").toString();
 		String email2 = request.getParameter("v_reg_email_confirmation__").toString();
 		String pass = request.getParameter("v_reg_passwd__").toString();
 
-		if (DBOperation.createAccount(firstName, "", email, pass, "V")) {
-			request.getRequestDispatcher("/vendor.jsp").forward(request, response);
+		if (DBOperation.createAccount(firstName, "", email, pass, "V")) 
+		{
+			request.setAttribute("v", "vendor");
+			request.getRequestDispatcher("/registration_confirmation.jsp").forward(request, response);
 		} else {
 			// Something is wrong. Go back to index.
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
