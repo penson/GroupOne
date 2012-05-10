@@ -56,7 +56,7 @@ public class VerifyLogin extends HttpServlet {
 			}
 			
 		} else {
-			request.setAttribute("errorMsg", "Wrong email/password");
+			request.setAttribute("errorMsg", "Incorrect email/password");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 	}

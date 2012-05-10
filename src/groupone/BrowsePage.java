@@ -46,55 +46,55 @@ public class BrowsePage extends HttpServlet {
 			displayCoupon(out, "Travel");
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("catalog", "Travel");
-			request.getRequestDispatcher("/page_couponSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/page_selectCoupon.jsp").forward(request, response);
 		}
 		else if(catalogBtn.equals("Food")) {
 			displayCoupon(out, "Food");
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("catalog", "Food");
-			request.getRequestDispatcher("/page_couponSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/page_selectCoupon.jsp").forward(request, response);
 		}
 		else if(catalogBtn.equals("Moving")) {
 			displayCoupon(out, "Moving");
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("catalog", "Moving");
-			request.getRequestDispatcher("/page_couponSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/page_selectCoupon.jsp").forward(request, response);
 		}
 		else if(catalogBtn.equals("Health")) {
 			displayCoupon(out, "Health");
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("catalog", "Health");
-			request.getRequestDispatcher("/page_couponSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/page_selectCoupon.jsp").forward(request, response);
 		}
 		else if(catalogBtn.equals("Photography")) {
 			displayCoupon(out, "Photography");
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("catalog", "Photography");
-			request.getRequestDispatcher("/page_couponSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/page_selectCoupon.jsp").forward(request, response);
 		}
 		else if(catalogBtn.equals("Footwear")) {
 			displayCoupon(out, "Footwear");
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("catalog", "Footwear");
-			request.getRequestDispatcher("/page_couponSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/page_selectCoupon.jsp").forward(request, response);
 		}
 		else if(catalogBtn.equals("Magazine")) {
 			displayCoupon(out, "Magazine");
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("catalog", "Magazine");
-			request.getRequestDispatcher("/page_couponSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/page_selectCoupon.jsp").forward(request, response);
 		}
 		else if(catalogBtn.equals("Home Decorating")) {
 			displayCoupon(out, "Home Decorating");
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("catalog", "Home Decorating");
-			request.getRequestDispatcher("/page_couponSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/page_selectCoupon.jsp").forward(request, response);
 		}
 		else {
 			displayCoupon(out, "Other");
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("catalog", "Other");
-			request.getRequestDispatcher("/page_couponSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/page_selectCoupon.jsp").forward(request, response);
 		}
 	}
 	

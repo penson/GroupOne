@@ -20,21 +20,22 @@
 	<table>
 		<tr>
 		<td>Credit Card Number</td>
-		<td><input type="text" name="cardNumber"></td>
+		<td><input type="text" name="textField"></td>
 		</tr>
 		<tr>
 		<td>Card Holder's Name</td>
-		<td><input type="text" name="name"></td>
+		<td><input type="text" name="textField"></td>
 		</tr>
 		<tr>
 		<td>Expiration Date</td>
-		<td><input type="text" name="expirationDate"></td>
+		<td><input type="text" name="textField"></td>
 		</tr>
 		<tr>
 		<td>Security Code</td>
-		<td><input type="text" name="securityCode"></td>
+		<td><input type="text" name="textField"></td>
 		</tr>
 	</table>
+	<font color="red">${errorMsg}</font>
 	<input type="submit" name="submit" value="Place Your Order">
 </form>
 
