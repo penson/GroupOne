@@ -167,6 +167,19 @@ public class DBOperation {
 		return account;
 	}
 	
+	public static void deleteCoupon(String couponId) {
+		Connection con = new DBConnection().getDBConnection();
+		Account account = new Account();
+		
+		try {
+			Statement stmt = con.createStatement();
+			int rs = stmt.executeUpdate("DELETE FROM coupon where idCoupon = '" + couponId + "'");
+
+		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public static ArrayList<String> queryToArrayList(String sqlCmd) {
 		Connection con = new DBConnection().getDBConnection();
 		ArrayList<String> list = new ArrayList<String>();
