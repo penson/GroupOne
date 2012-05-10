@@ -1,6 +1,8 @@
 package groupone;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,17 +36,10 @@ public class SelectCoupon extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String[] couponIds = request.getParameterValues("checkBox");
+		ArrayList<Coupon> coupons = DBOperation.searchCoupon(couponIds);
 		
-		String[] checkBoxes = request.getParameterValues("checkBox");
-		for(String s : checkBoxes) {
-			System.out.println(s);
-		}
-		
-		
-		String couponId = request.getParameter("textBox");
-		Coupon coupon = DBOperation.searchCoupon(couponId);
-		
-		request.setAttribute("coupon", coupon);
+		request.setAttribute("coupons", coupons);
 		request.getRequestDispatcher("/page_checkOut.jsp").forward(request, response);
 	}
 

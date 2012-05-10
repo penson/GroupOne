@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="groupone.Coupon" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,13 +10,36 @@
 </head>
 <body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
 
-<h1>Check Out</h1>
+<h1>Shopping Cart</h1>
 
-<p>Title: ${coupon.getTitle()}</p>
-<p>Expiration Date: ${coupon.getExpireDate()}</p>
-<p>Seller: ${coupon.getVendor()}</p>
-<p>$ ${coupon.getPrice()}</p>
+<table align="center" cellpadding="15" border="1" style="background-color: powderblue;">
+	<tr>
+	<td>Title</td>
+	<td>Create Date</td>
+	<td>Expire Date</td>
+	<td>Price</td>
+	<td>Category</td>
+	</tr>
 
+<%
+	ArrayList<Coupon> coupons = (ArrayList<Coupon>)request.getAttribute("coupons");
+
+	for(Coupon c : coupons) {
+%>
+
+	<tr>
+	<td><%=c.getTitle()%></td>
+	<td><%=c.getCreateDate()%></td>
+	<td><%=c.getExpireDate()%></td>
+	<td><%=c.getPrice()%></td>
+	<td><%=c.getCategory()%></td>
+	</tr>
+
+<%
+	}
+%>
+</table>
+<br/>
 <p>Please enter your credit card information</p>
 <form id=checkOut action="CheckOut" method="post">
 	<table>

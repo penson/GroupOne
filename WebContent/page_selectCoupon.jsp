@@ -24,7 +24,7 @@
 	<td>Sold</td>
 	<td>Price</td>
 	<td>Category</td>
-	<td>Selected</td>
+	<td>Select</td>
 	</tr>
 	
 <%
