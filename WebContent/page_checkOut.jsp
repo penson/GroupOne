@@ -69,6 +69,7 @@
 		<td><input type="text" name="textField"></td>
 		</tr>
 	</table>
+	<input type="hidden" name="coupons" value="${coupons}">
 	<input type="submit" name="submit" value="Place Your Order">
 </form>
 
