@@ -43,6 +43,15 @@
 <p>Please enter your credit card information</p>
 <form id=checkOut action="CheckOut" method="post">
 	<table>
+<%
+		if(request.getAttribute("gift") != null 
+		&& request.getAttribute("gift").toString().equalsIgnoreCase("ON")) {
+			out.println("<tr>");
+			out.println("<td>Recepient Email Address</td>");
+			out.println("<td><input type=\"text\" name=\"textField\">");
+			out.println("</tr>");
+		}
+%>
 		<tr>
 		<td>Credit Card Number</td>
 		<td><input type="text" name="textField"></td>
@@ -60,7 +69,6 @@
 		<td><input type="text" name="textField"></td>
 		</tr>
 	</table>
-	<font color="red">${errorMsg}</font>
 	<input type="submit" name="submit" value="Place Your Order">
 </form>
 

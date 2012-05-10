@@ -50,6 +50,7 @@
 %>
 </table>
 
+<p><input type="checkbox" name="gift">This is a gift</p>
 <p><input type="submit" value="Buy"></p>
 <p><a href="page_browse.jsp">Back</a></p>
 <p><a href="page_home.jsp">Back to home</a></p>
