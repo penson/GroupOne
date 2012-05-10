@@ -48,6 +48,7 @@ public class CreateCustomer extends HttpServlet {
 			request.getRequestDispatcher("/registration_confirmation.jsp").forward(request, response);
 		} else {
 			// Something is wrong. Go back to index.
+			request.setAttribute("customer_error", "Uh-Oh! Registration failed!\nTry resseting password");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
         

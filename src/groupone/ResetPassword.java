@@ -33,7 +33,37 @@ public class ResetPassword extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String email = request.getParameter("email").toString();
+		String newPassword = request.getParameter("newPassword").toString();
+		String confirmPassword = request.getParameter("confirmPassword").toString();
+		
+		if(DBOperation.emailExists(email))
+		{
+			if(newPassword.equals(confirmPassword))
+			{
+				if(DBOperation.resetPassword(email, newPassword))
+				{
+					request.setAttribute("passwordReset", "Password reset. Please Log in");
+					request.getRequestDispatcher("/index.jsp").forward(request, response);
+				}
+				else
+				{
+					request.setAttribute("passwordError", "Uh-Oh! FAIL!");
+					request.getRequestDispatcher("/page_forgetPassword.jsp").forward(request, response);
+				}
+			}
+			else
+			{
+				request.setAttribute("passwordNoMatch", "Uh-Oh! Passwords Didn't Match!");
+				request.getRequestDispatcher("/page_forgetPassword.jsp").forward(request, response);
+			}
+		}
+		else
+		{
+			request.setAttribute("noEmailExists", "Uh-Oh! Email doesn't exist!");
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+ 
 	}
 
 }

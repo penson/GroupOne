@@ -31,6 +31,8 @@ background-image:url('http://assets2.grouponcdn.com/images/groupon/landing_pages
 
 <td><a href="page_forgetPassword.jsp">Forgot your password?</a><br>
 <font color="red">${errorMsg}</font>
+<font color="red">${passwordReset}</font>
+<font color="red">${noEmailExists}</font>
 </td>
 </tr>
 </tbody>
@@ -94,6 +96,7 @@ type="text">
 <p>&nbsp;</p>
 <p align="right">
 <input value="Submit" type="submit">
+<p align="right"><font color="red">${customer_error}</font>
 </p>
 </div>
 </form>
@@ -142,7 +145,8 @@ id="reg_passwd__" name="v_reg_passwd__" value="" type="password">
 <p>&nbsp;</p>
 <p align="right">&nbsp;</p>
 <p align="right">
-  <input value="Submit" type="submit">
+<input value="Submit" type="submit">
+<p align="right"><font color="red">${vendor_error}</font>
 </p>
 </div>
 </form>

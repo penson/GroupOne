@@ -19,10 +19,11 @@ function showOption(id)
 <title>Vendor Page</title>
 </head>
 <body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
-
+<p><h1 style="text-align:center;">Vendor Page</h1>
+<p><h1 style="text-align:center;">Choose an Option</h1>
 <p>
-<form> <input name="option" value="AddCoupon" type="radio" onclick="showOption(0)">Add a
-Coupon<br>
+<form style = text-align:center> <input name="option" value="AddCoupon" type="radio" onclick="showOption(0)">Add a
+Coupon
 <input name="option" value="deleteCoupon" type="radio" onclick="showOption(1)"> Delete a
 Coupon
 </form>

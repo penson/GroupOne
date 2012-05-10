@@ -302,15 +302,9 @@ public class DBOperation {
 		}
 	}
 	
-	public static boolean AddCoupon(String title, String date, String quantity, String price, String category, String vendorId)
+	public static boolean addCoupon(String title, String date, String quantity, String price, String category, String vendorId)
 	{
-		title = title.toUpperCase();
-		date = date.toUpperCase();
-		quantity = quantity.toUpperCase();
-		price = quantity.toUpperCase();
-		category = category.toUpperCase();
-		vendorId = vendorId.toUpperCase();
-		 
+
 		
 		Connection con = new DBConnection().getDBConnection();
 		
@@ -333,6 +327,55 @@ public class DBOperation {
 		return true;
 		
 	}
+	
+	public static boolean emailExists(String email)
+	{
+		Connection con = new DBConnection().getDBConnection();
+		boolean found = false;
+		String sqlCmd = "SELECT" + "'" + email + "' " + "FROM account WHERE email = '" + email + "'";
+		
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sqlCmd);
+			
+			while (rs.next()) {
+				found = true;
+			}
+			
+			rs.close();
+			stmt.close();
+			con.close();
+			
+		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return found;
+	}
+	public static boolean resetPassword(String email, String newPassword)
+	{
+		Connection con = new DBConnection().getDBConnection();
+		
+		String sqlCmd = "UPDATE account SET password = " + "'" + newPassword + "'" +
+				"WHERE email = " + "'" + email + "'";
+		try 
+		{
+			Statement stmt = con.createStatement();
+			int rs = stmt.executeUpdate(sqlCmd);
+
+			stmt.close();
+			con.close();
+			
+		} 
+		catch(SQLException e) 
+		{
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+	
+	
 	
 }
 

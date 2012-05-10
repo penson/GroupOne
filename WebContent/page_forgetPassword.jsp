@@ -4,26 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-
-<script type="text/javascript">
-	function comparePasswords()
-	{
-		var password = document.reset.newPassword.value;
-		var password2 = document.reset.confirmPassword.value;
-		
-			if(password === password2)
-			{
-				return true;
-			}
-			else
-			{
-				alert("Password Does Not Match");
-				return false;
-			}
-
-	}
-</script>
+<title>Password Reset</title>
 
 </head>
 <body background = "http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
@@ -32,7 +13,7 @@
 </h3>
 <p>&nbsp;
 </center>
-<form name="resetForm" action="ResetPassword" onSubmit="return comparePasswords()" method="post">
+<form name="resetForm" action="ResetPassword" onSubmit="comparePasswords()" method="post">
 <table align="center" cellpadding="1"
 cellspacing="2">
 
@@ -59,6 +40,8 @@ id="confirmPassword" name="confirmPassword" value="" type="password">
 </td>
 </tbody>
 </table>
+<p align="center"><font color="red">${passwordNoMatch}</font>
+<p align="center"><font color="red">${passwordError}</font>
 <p align="center">
   <input value="Submit" type="submit">
 </form>

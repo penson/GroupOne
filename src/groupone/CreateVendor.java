@@ -47,6 +47,8 @@ public class CreateVendor extends HttpServlet {
 			request.getRequestDispatcher("/registration_confirmation.jsp").forward(request, response);
 		} else {
 			// Something is wrong. Go back to index.
+			
+			request.setAttribute("vendor_error", "Uh-Oh! Registration failed!\nTry resseting password");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
         

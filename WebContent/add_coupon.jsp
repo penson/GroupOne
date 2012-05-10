@@ -128,8 +128,7 @@ type="text"></div>
 <p>
 <p>
 <br>
-<input tabindex="4" value="Submit"
-type="submit"></p>
+<input value="Submit" type="submit">
 </form>
 </body>
 </html>

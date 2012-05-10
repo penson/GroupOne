@@ -14,15 +14,17 @@ background-image:url('http://assets2.grouponcdn.com/images/groupon/backgrounds/b
 
 function delayer()
 {
+	
 	var type = <%=session.getAttribute( "userType" ) %>.value;
-	alert(type);
+	
+	
 	if(type == 'vendor')
 	{
-		window.location = "vendor.jsp"
+		window.location = 'vendor.jsp';
 	}
 	else
 	{
-		window.location = "page_home.jsp"
+		window.location = 'page_home.jsp';
 	}
 }
 
@@ -32,8 +34,10 @@ function delayer()
 <body onLoad="setTimeout('delayer()', 5000)">
 <p>
 <p>
-<center><h2>Account Created Successfully!!</h2>
+<center><h2>Registration Complete!
+<p>Welcome to the GroupOne Family!</h2>
 <p>You will be redirected in 5 seconds.</p></center>
+
 <input id="vendor" type="hidden" name="userType" value= <%=session.getAttribute( "userType" ) %>>
 <input id="customer" type="hidden" name="userType" value= <%=session.getAttribute( "userType" ) %>>
 </body>

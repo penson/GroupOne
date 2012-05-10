@@ -49,7 +49,7 @@ public class AddCoupon extends HttpServlet {
 		String category = request.getParameter("category").toString();
 				
 		
-		if(DBOperation.AddCoupon(title, date, quantity, price, category, vendorId))
+		if(DBOperation.addCoupon(title, date, quantity, price, category, vendorId))
 		{
 			request.setAttribute("couponAdded", "Coupon has been added!");
 			request.getRequestDispatcher("/add_coupon.jsp").forward(request, response);
