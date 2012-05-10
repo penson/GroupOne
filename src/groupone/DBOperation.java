@@ -405,7 +405,29 @@ public class DBOperation {
 		return true;
 	}
 	
-	
+	public static boolean changeEmail(String currentEmail, String newEmail)
+	{
+		Connection con = new DBConnection().getDBConnection();
+		
+		String sqlCmd = "UPDATE account SET email = " + "'" + newEmail + "'" +
+				"WHERE email = " + "'" + currentEmail + "'";
+		
+		try 
+		{
+			Statement stmt = con.createStatement();
+			int rs = stmt.executeUpdate(sqlCmd);
+
+			stmt.close();
+			con.close();
+			
+		} 
+		catch(SQLException e) 
+		{
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}	
 	
 }
 
