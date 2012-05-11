@@ -109,11 +109,11 @@
  	cellpadding="2" cellspacing="2">
     	<tr><td align="right">
 
-<input type="image" src="buttons/homeUp.png" value="Home" onmouseover="setOverImg('8','');" onmouseout="setOutImg('8','');" id="button8">
-<input type="image" src="buttons/addUp.png" value="Add Coupon" onmouseover="setOverImg('5','');" onmouseout="setOutImg('5','');" id="button5">
-<input type="image" src="buttons/deleteUp.png" value="Delete Coupon" onmouseover="setOverImg('6','');" onmouseout="setOutImg('6','');" id="button6">
-<input type="image" src="buttons/accountUp.png" value="Account" onmouseover="setOverImg('3','');" onmouseout="setOutImg('3','');" id="button3">
-<input type="image" src="buttons/logoutUp.png" value="Log Out" onmouseover="setOverImg('4','');" onmouseout="setOutImg('4','');" id="button4">
+<input type="image" src="buttons/homeUp.png" value="Home" onmouseover="setOverImg('8','');" onmouseout="setOutImg('8','');" id="button8" name="button">
+<input type="image" src="buttons/addUp.png" value="Add Coupon" onmouseover="setOverImg('5','');" onmouseout="setOutImg('5','');" id="button5" name="button">
+<input type="image" src="buttons/deleteUp.png" value="Delete Coupon" onmouseover="setOverImg('6','');" onmouseout="setOutImg('6','');" id="button6" name="button">
+<input type="image" src="buttons/accountUp.png" value="Account" onmouseover="setOverImg('3','');" onmouseout="setOutImg('3','');" id="button3" name="button">
+<input type="image" src="buttons/logoutUp.png" value="Log Out" onmouseover="setOverImg('4','');" onmouseout="setOutImg('4','');" id="button4" name="button">
 
 </td></tr></table>
 	

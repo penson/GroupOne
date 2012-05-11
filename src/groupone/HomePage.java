@@ -40,23 +40,28 @@ public class HomePage extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession userSession = request.getSession(false);
-		email = userSession.getAttribute("userEmail").toString();
+		//email = userSession.getAttribute("userEmail").toString();
 		
 		String name = request.getParameter("button");
 		
-		if(name.equals("Home")){
+		if(name.equals("Home"))
+		{
 			request.getRequestDispatcher("/homeProposal.jsp").forward(request, response);
 		}
-		else if(name.equals("Browse")) {
+		else if(name.equals("Browse")) 
+		{
 			request.getRequestDispatcher("/page_browse.jsp").forward(request, response);
 		}
-		else if(name.equals("Order History")) {
+		else if(name.equals("Order History")) 
+		{
 			request.getRequestDispatcher("/page_orderHist.jsp").forward(request, response);
 		}
-		else if(name.equals("Account")) {
+		else if(name.equals("Account"))
+		{
 			request.getRequestDispatcher("/page_account.jsp").forward(request, response);
 		}
-		else {
+		else 
+		{
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}		
 	}
