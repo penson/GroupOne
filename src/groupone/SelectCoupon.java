@@ -37,10 +37,12 @@ public class SelectCoupon extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String[] couponIds = request.getParameterValues("checkBox");
+		String gift = request.getParameter("gift");
 		
 		if(couponIds != null) {
 			ArrayList<Coupon> coupons = DBOperation.searchCoupon(couponIds);
 			request.setAttribute("coupons", coupons);
+			request.setAttribute("gift", gift);
 			request.getRequestDispatcher("/page_checkOut.jsp").forward(request, response);
 		}
 		else {

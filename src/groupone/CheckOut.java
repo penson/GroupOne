@@ -1,6 +1,8 @@
 package groupone;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,8 +36,8 @@ public class CheckOut extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String[] textFields = request.getParameterValues("textField");
 		/*
+		String[] textFields = request.getParameterValues("textField");		
 		for(String s: textFields) {
 			if(s.isEmpty()) {
 				request.setAttribute("errorMsg", "Cannot leave blank information");
@@ -43,6 +45,8 @@ public class CheckOut extends HttpServlet {
 			}
 		}
 		*/
+		ArrayList<Coupon> coupons = (ArrayList<Coupon>)request.getAttribute("coupons");
+		System.out.println(coupons);
 		request.getRequestDispatcher("/page_invoice.jsp").forward(request, response);
 	}
 

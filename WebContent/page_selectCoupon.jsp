@@ -7,20 +7,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-<script type="text/javascript">
-
-$('#thebox').click(function() {
-    if ($(this).attr('checked') == false {
-        $('#sub').attr('disabled', 'disabled');
-    } else {
-        $('#sub').removeAttr('disabled');
-    }
-});​
-
-
-</script>
-
 <title>Insert title here</title>
 </head>
 <body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
@@ -56,7 +42,7 @@ $('#thebox').click(function() {
 	<td><%=c.getSold()%></td>
 	<td><%=c.getPrice()%></td>
 	<td><%=c.getCategory()%></td>
-	<td><input type="checkbox" id="thebox" value="<%=c.getId()%>">
+	<td><input type="checkbox" name="checkBox" value="<%=c.getId()%>">
 	</tr>
 	
 <% 		
@@ -64,7 +50,8 @@ $('#thebox').click(function() {
 %>
 </table>
 
-<p><input type="submit" id="sub" value="Buy"></p>
+<p><input type="checkbox" name="gift">This is a gift</p>
+<p><input type="submit" value="Buy"></p>
 <p><a href="page_browse.jsp">Back</a></p>
 <p><a href="page_home.jsp">Back to home</a></p>
 </form>
