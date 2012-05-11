@@ -1,72 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ page import="groupone.*" %>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+<title></title>
+</head>
 <body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
-
-<h1 style="text-align:center; color:blue">Account Setting</h1>
-<h3>Change your Email</h3>
-<form action="ChangeEmail" id="changeEmailForm" method="post">
-<div id="changeEmailContainer">
-<table cellpadding="1" cellspacing="0" width="300">
-<tbody>
 <tr>
-<td width="300">Current Email:</td>
-<td>${userEmail}
+<td colspan="2">
+<img src="http://i.imgur.com/xchNB.png"
+alt="GroupOne logo" hspace="0" vspace="0" align="left" class="logo img">
+<h1 style="text-align:center; color:blue"> Groupone's Groupon</h1>
+<p style="text-align:center; color:blue">Welcome ${account.getFirstName()}</p>
 </td>
 </tr>
 
-<tr>
-<td>New Email:</td>
-<td><input class="inputtext" id="newEmail" name="newEmail" type="text">
-</td>
-</tr>
-
-<tr>
-<td></td>
-<td height="50"><input value="Submit" type="submit">
-<td>
-</tr>
-</tbody>
-</table>
-</div>
+<form id="homePage" action="HomePage" method="post">
+	<table style="text-align: center; width: 100%;" border="0"
+ 	cellpadding="2" cellspacing="2">	
+  		<tbody>
+    	<tr>
+      		<th><input type="submit" name="button" value="Browse"></th>
+      		<th><input type="submit" name="button" value="Order History"></th>
+      		<th><input type="submit" name="button" value="Account"></th>
+      		<th><input type="submit" name="button" value="Log Out"></th>
+    	</tr>
+  		</tbody>
+	</table>
+	
 </form>
 
-<p>
-<p>
-<p>
-<p>
-
-<h3>Change your Email</h3>
-<form action="ChangePassword" id=changePasswordForm" method="post">
-<div id="changePasswordContainer">
-<table cellpadding="1" cellspacing="0">
-
-<tbody>
-<tr>
-<td width="135">Current Password:</td>
-<td><input class="inputtext" id="currentPassword" name="currentPassword" type="password">
-</td>
-</tr>
-
-<tr>
-<td>New Password:</td>
-<td><input class="inputtext" id="newPassword" name="currentPassword" type="password">
-</td>
-</tr>
-
-<tr>
-<td></td>
-<td height="50"><input value="Submit" type="submit">
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</form>
-
-<p><a href="page_home.jsp">Back</a></p>
+<center><img src="http://tctechcrunch2011.files.wordpress.com/2011/03/groupon-fb.png?w=640"/></center>
 
 </body>
 </html>
