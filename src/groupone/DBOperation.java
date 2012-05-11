@@ -273,6 +273,24 @@ public class DBOperation {
 		} catch(SQLException e) {}
 	}
 	
+	public static void createTransaction(String[] couponIds) {
+		Connection con = new DBConnection().getDBConnection();
+		StringBuilder sqlCmd = new StringBuilder();
+		
+		try {
+			Statement stmt = con.createStatement();
+			
+			for(int i=0; i<couponIds.length; i++) {
+				Coupon coupon = DBOperation.searchCoupon(couponIds[i]);
+				//to be finished...
+			}
+			
+			stmt.close();
+			con.close();
+			
+		} catch(SQLException e) {}
+	}
+	
 	public static ArrayList<String> queryToArrayList(String sqlCmd) {
 		Connection con = new DBConnection().getDBConnection();
 		ArrayList<String> list = new ArrayList<String>();

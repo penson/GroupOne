@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class DeleteCouponPage
@@ -35,7 +36,8 @@ public class DeleteCouponPage extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession(true);
+		PrintWriter out = response.getWriter();
 
         ArrayList<Coupon> coupons = DBOperation.getCouponList();
         
@@ -44,7 +46,7 @@ public class DeleteCouponPage extends HttpServlet {
 //        Account account = (Account) request.getAttribute("account");
         System.out.println(request.getAttribute("accountId"));
         for (Coupon c : coupons) {
-        	if (c.getVendor().equalsIgnoreCase("20")) {
+        	if (c.getVendor().equalsIgnoreCase((String)session.getAttribute("accountId"))) {
         		filtered.add(c);
         		System.out.println(c.getTitle());
         	}

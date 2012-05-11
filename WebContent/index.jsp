@@ -13,7 +13,7 @@ background-image:url('http://assets2.grouponcdn.com/images/groupon/landing_pages
 </style>
 </head>
 <body>
-
+<% request.getSession().invalidate(); %>
 <div id="header">
   <form id="signupForm" action="VerifyLogin" method="post">
   <table align="right" cellspacing="0">
