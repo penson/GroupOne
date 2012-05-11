@@ -110,6 +110,10 @@ public class DBOperation {
 				coupon.setVendor(rs.getString(9));
 				coupons.add(coupon);
 			}
+			
+			stmt.close();
+			con.close();
+			
 		} catch(SQLException e) {}
 		
 		return coupons;
@@ -180,8 +184,8 @@ public class DBOperation {
 	
 	public static Coupon searchCoupon(String couponId) {
 		Connection con = new DBConnection().getDBConnection();
-		String sqlCmd = "SELECT * FROM coupon WHERE idCoupon = '" + couponId + "'";
 		Coupon coupon = new Coupon();
+		String sqlCmd = "SELECT * FROM coupon WHERE idCoupon = '" + couponId + "'";
 		
 		try {
 			Statement stmt = con.createStatement();
@@ -198,6 +202,11 @@ public class DBOperation {
 				coupon.setSold(rs.getString(8));
 				coupon.setVendor(rs.getString(9));
 			}
+			
+			rs.close();
+			stmt.close();
+			con.close();
+			
 		} catch(SQLException e) {}
 		
 		return coupon;
@@ -205,8 +214,8 @@ public class DBOperation {
 	
 	public static ArrayList<Coupon> searchCoupon(String[] couponIds) {
 		Connection con = new DBConnection().getDBConnection();
-		StringBuilder sqlCmd = new StringBuilder();
 		ArrayList<Coupon> coupons = new ArrayList<Coupon>();
+		StringBuilder sqlCmd = new StringBuilder();
 		
 		try {
 			Statement stmt = con.createStatement();
@@ -232,9 +241,36 @@ public class DBOperation {
 					coupons.add(coupon);
 				}
 			}
+			
+			stmt.close();
+			con.close();
+			
 		} catch(SQLException e) {}
 		
 		return coupons;
+	}
+	
+	public static void updateCoupon(String[] couponIds) {
+		Connection con = new DBConnection().getDBConnection();
+		StringBuilder sqlCmd = new StringBuilder();
+		
+		try {
+			Statement stmt = con.createStatement();
+			
+			for(int i=0; i<couponIds.length; i++) {
+				int quantity = Integer.parseInt(searchCoupon(couponIds[i]).getQuantity());
+				Integer newQuantity = quantity - 1;
+				
+				sqlCmd.delete(0, sqlCmd.length());
+				sqlCmd.append("UPDATE coupon SET quantity = " + "'" + newQuantity.toString() + "'" +
+						"WHERE idCoupon = " + "'" + couponIds[i] + "'");
+				stmt.executeUpdate(sqlCmd.toString());
+			}
+			
+			stmt.close();
+			con.close();
+			
+		} catch(SQLException e) {}
 	}
 	
 	public static ArrayList<String> queryToArrayList(String sqlCmd) {
@@ -427,35 +463,7 @@ public class DBOperation {
 			return false;
 		}
 		return true;
-	}
-	
-	public static boolean checkPassword(String userEmail, String currentPassword)
-	{
-		Connection con = new DBConnection().getDBConnection();
-		boolean found = false;
-		String sqlCmd = "SELECT" + "'" + currentPassword + "' " + "FROM account WHERE email = '" + userEmail + "'";
-		
-		try {
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(sqlCmd);
-			
-			while (rs.next()) 
-			{
-				found = true;
-			}
-			
-			rs.close();
-			stmt.close();
-			con.close();
-			
-		} 
-		catch(SQLException e) 
-		{
-			System.out.println(e.getMessage());
-		}
-		
-		return found;
-	}
+	}	
 	
 }
 

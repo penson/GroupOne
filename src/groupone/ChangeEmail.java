@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ChangeEmail
@@ -35,29 +34,20 @@ public class ChangeEmail extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		HttpSession userSession = request.getSession(false);
-		String currentEmail = (String) userSession.getAttribute("userEmail");
+		String currentEmail = request.getParameter("userEmail").toString();
+		System.out.println(currentEmail);
 		String newEmail = request.getParameter("newEmail").toString();
 		
-		if(DBOperation.emailExists(newEmail))
+		if(DBOperation.changeEmail(currentEmail, newEmail))
 		{
-			if(DBOperation.changeEmail(currentEmail, newEmail))
-			{
-				request.setAttribute("emailChange", "Email Address Updated");
-				request.getRequestDispatcher("/page_account.jsp").forward(request, response);
-			}
-			else
-			{
-			request.setAttribute("emailError", "Error Changing Email Address");
+			request.setAttribute("emailChange", "Email Address Updated");
 			request.getRequestDispatcher("/page_account.jsp").forward(request, response);
-			}
 		}
 		else
 		{
-			request.setAttribute("emailTaken", "Email Already Exists!");
+			request.setAttribute("emailError", "Error Changing Email Address");
 			request.getRequestDispatcher("/page_account.jsp").forward(request, response);
 		}
 	}
-		
 
 }

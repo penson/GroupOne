@@ -2,6 +2,7 @@ package groupone;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,6 +42,10 @@ public class SelectCoupon extends HttpServlet {
 		
 		if(couponIds != null) {
 			ArrayList<Coupon> coupons = DBOperation.searchCoupon(couponIds);
+			String objectId = UUID.randomUUID().toString();
+			
+			request.getSession().setAttribute(objectId, couponIds);
+			request.setAttribute("objectId", objectId);
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("gift", gift);
 			request.getRequestDispatcher("/page_checkOut.jsp").forward(request, response);

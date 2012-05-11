@@ -10,5 +10,7 @@
 
 <h1>Invoice</h1>
 
+<p><a href="page_home.jsp">Back to home</a></p>
+
 </body>
 </html>

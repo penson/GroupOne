@@ -1,8 +1,6 @@
 package groupone;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,8 +43,12 @@ public class CheckOut extends HttpServlet {
 			}
 		}
 		*/
-		ArrayList<Coupon> coupons = (ArrayList<Coupon>)request.getAttribute("coupons");
-		System.out.println(coupons);
+		String userEmail = request.getSession().getAttribute("userEmail").toString();
+		String objectId = request.getParameter("objectId");
+		String[] couponIds = (String[])request.getSession().getAttribute(objectId);
+		
+		DBOperation.updateCoupon(couponIds);
+		
 		request.getRequestDispatcher("/page_invoice.jsp").forward(request, response);
 	}
 

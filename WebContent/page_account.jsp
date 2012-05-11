@@ -20,9 +20,6 @@
 <tr>
 <td>New Email:</td>
 <td><input class="inputtext" id="newEmail" name="newEmail" type="text">
-<font color="red">${emailChange}</font>
-<font color="red">${emailError}</font>
-<font color="red">${emailTaken}</font>
 </td>
 </tr>
 
@@ -42,7 +39,7 @@
 <p>
 
 <h3>Change your Email</h3>
-<form action="ChangePassword" id="changePasswordForm" method="post">
+<form action="ChangePassword" id=changePasswordForm" method="post">
 <div id="changePasswordContainer">
 <table cellpadding="1" cellspacing="0">
 
@@ -55,10 +52,7 @@
 
 <tr>
 <td>New Password:</td>
-<td><input class="inputtext" id="newPassword" name="newPassword" type="password"><br>
-<font color="red">${passwordChange}</font>
-<font color="red">${passwordError}</font>
-<font color="red">${passwordNoMatch}</font>
+<td><input class="inputtext" id="newPassword" name="currentPassword" type="password">
 </td>
 </tr>
 
