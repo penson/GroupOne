@@ -4,6 +4,9 @@
 <%@ page import="groupone.*" %>  
 <html>
 <head>
+<script src="menuscript.js" language="javascript" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="menustyle.css" media="screen, print" />
+
 <link rel="stylesheet" href="amcharts/style.css" type="text/css">
 <script src="amcharts/amcharts.js" type="text/javascript"></script>        
         <script type="text/javascript">
@@ -98,8 +101,9 @@
 <title>Vendor Page</title>
 </head>
 <body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
-<img src="http://i.imgur.com/xchNB.png" align="left" style="z-index:0">
 
+<img src="http://i.imgur.com/xchNB.png" align="left" style="z-index:0">
+<div id="banner">
 <form id="homePage" action="HomePage" method="post">
 <table style="text-align: center; width: 80%;" border="0"
  	cellpadding="2" cellspacing="2">
@@ -114,6 +118,7 @@
 </td></tr></table>
 	
 </form>
+</div>
 <table border="0"
  	cellpadding="0" cellspacing="0" style="text-align: center; width: 100%;">
   <tr>

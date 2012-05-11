@@ -44,7 +44,10 @@ public class HomePage extends HttpServlet {
 		
 		String name = request.getParameter("button");
 		
-		if(name.equals("Browse")) {
+		if(name.equals("Home")){
+			request.getRequestDispatcher("/homeProposal.jsp").forward(request, response);
+		}
+		else if(name.equals("Browse")) {
 			request.getRequestDispatcher("/page_browse.jsp").forward(request, response);
 		}
 		else if(name.equals("Order History")) {
