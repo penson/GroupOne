@@ -52,7 +52,7 @@ public class VerifyLogin extends HttpServlet {
 				request.getRequestDispatcher("/vendor.jsp").forward(request, response);
 			}
 			else {
-				request.getRequestDispatcher("/page_home.jsp").forward(request, response);
+				request.getRequestDispatcher("/homeProposal.jsp").forward(request, response);
 			}
 			
 		} else {

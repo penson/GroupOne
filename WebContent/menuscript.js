@@ -2,9 +2,9 @@
 var buttonFolder = "buttons/";
 
 /*** SET BUTTONS' FILENAMES HERE ***/
-upSources = new Array("button1up.png","button2up.png","button3up.png","button4up.png");
+upSources = new Array("browseUp.png","orderHistoryUp.png","accountUp.png","logoutUp.png","addUp.png","deleteUp.png","statsUp.png","homeUp.png","aboutUsUp.png","emailUp.png","helpUp.png");
 
-overSources = new Array("button1over.png","button2over.png","button3over.png","button4over.png");
+overSources = new Array("browseOver.png","orderHistoryOver.png","accountOver.png","logoutOver.png","addOver.png","deleteOver.png","statsOver.png","homeOver.png","aboutUsOver.png","emailOver.png","helpOver.png");
 
 
 //*** NO MORE SETTINGS BEYOND THIS POINT ***//
