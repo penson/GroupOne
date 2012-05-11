@@ -55,10 +55,7 @@ public class HomePage extends HttpServlet {
 		}
 		else {
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
-		}
-		
-		System.out.println("Account: "+email);
-		
+		}		
 	}
 
 }

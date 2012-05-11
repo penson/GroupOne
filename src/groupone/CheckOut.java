@@ -45,6 +45,7 @@ public class CheckOut extends HttpServlet {
 			}
 		}
 		*/
+		String userEmail = request.getSession().getAttribute("userEmail").toString();
 		String objectId = request.getParameter("objectId");
 		ArrayList<Coupon> coupons = (ArrayList<Coupon>)request.getSession().getAttribute(objectId);
 		
