@@ -44,7 +44,7 @@ public class SelectCoupon extends HttpServlet {
 			ArrayList<Coupon> coupons = DBOperation.searchCoupon(couponIds);
 			String objectId = UUID.randomUUID().toString();
 			
-			request.getSession().setAttribute(objectId, coupons);
+			request.getSession().setAttribute(objectId, couponIds);
 			request.setAttribute("objectId", objectId);
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("gift", gift);

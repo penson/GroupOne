@@ -52,7 +52,7 @@ public class BrowsePage extends HttpServlet {
 		ArrayList<Coupon> filtered = new ArrayList<Coupon>();
 		
 		for(Coupon c : allCoupons) {
-			if(c.getCategory().equalsIgnoreCase(name))
+			if(c.getCategory().equalsIgnoreCase(name) && Integer.parseInt(c.getQuantity()) > 0)
 				filtered.add(c);
 		}
 		
