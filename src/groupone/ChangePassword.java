@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ChangeEmail
+ * Servlet implementation class ChangePassword
  */
-@WebServlet("/ChangeEmail")
-public class ChangeEmail extends HttpServlet {
+@WebServlet("/ChangePassword")
+public class ChangePassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChangeEmail() {
+    public ChangePassword() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,28 +36,30 @@ public class ChangeEmail extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		HttpSession userSession = request.getSession(false);
-		String currentEmail = (String) userSession.getAttribute("userEmail");
-		String newEmail = request.getParameter("newEmail").toString();
+		String userEmail = (String) userSession.getAttribute("userEmail");
+	
+		String currentPassword = request.getParameter("currentPassword").toString();
+		String newPassword = request.getParameter("newPassword").toString();
 		
-		if(DBOperation.emailExists(newEmail))
+		if(DBOperation.checkPassword(userEmail, currentPassword))
 		{
-			if(DBOperation.changeEmail(currentEmail, newEmail))
+			if(DBOperation.resetPassword(userEmail, newPassword))
 			{
-				request.setAttribute("emailChange", "Email Address Updated");
+				request.setAttribute("passwordChange", "Password has been changed.");
 				request.getRequestDispatcher("/page_account.jsp").forward(request, response);
 			}
 			else
 			{
-			request.setAttribute("emailError", "Error Changing Email Address");
-			request.getRequestDispatcher("/page_account.jsp").forward(request, response);
+				request.setAttribute("passwordError", "Uh-Oh! FAIL!");
+				request.getRequestDispatcher("/page_account.jsp").forward(request, response);
 			}
 		}
 		else
 		{
-			request.setAttribute("emailTaken", "Email Already Exists!");
+			request.setAttribute("passwordNoMatch", "Uh-Oh! Password Incorrect!");
 			request.getRequestDispatcher("/page_account.jsp").forward(request, response);
+			
 		}
 	}
-		
 
 }

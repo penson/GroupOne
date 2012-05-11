@@ -427,7 +427,35 @@ public class DBOperation {
 			return false;
 		}
 		return true;
-	}	
+	}
+	
+	public static boolean checkPassword(String userEmail, String currentPassword)
+	{
+		Connection con = new DBConnection().getDBConnection();
+		boolean found = false;
+		String sqlCmd = "SELECT" + "'" + currentPassword + "' " + "FROM account WHERE email = '" + userEmail + "'";
+		
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sqlCmd);
+			
+			while (rs.next()) 
+			{
+				found = true;
+			}
+			
+			rs.close();
+			stmt.close();
+			con.close();
+			
+		} 
+		catch(SQLException e) 
+		{
+			System.out.println(e.getMessage());
+		}
+		
+		return found;
+	}
 	
 }
 
