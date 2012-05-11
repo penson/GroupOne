@@ -27,6 +27,9 @@ Coupon
 <input name="option" value="deleteCoupon" type="radio" onclick="showOption(1)"> Delete a
 Coupon
 </form>
+<FORM style = text-align:right METHOD="LINK" ACTION="/GroupOne/index.jsp">
+<INPUT TYPE="submit" VALUE="Log Out">
+</FORM>
 <div style="visibility:hidden"><iframe id="f1"
 src=""
 marginheight="0" marginwidth="0" frameborder="0" height="500"
