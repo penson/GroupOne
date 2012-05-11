@@ -45,8 +45,9 @@ public class CheckOut extends HttpServlet {
 			}
 		}
 		*/
-		ArrayList<Coupon> coupons = (ArrayList<Coupon>)request.getAttribute("coupons");
-		System.out.println(coupons);
+		String objectId = request.getParameter("objectId");
+		ArrayList<Coupon> coupons = (ArrayList<Coupon>)request.getSession().getAttribute(objectId);
+		
 		request.getRequestDispatcher("/page_invoice.jsp").forward(request, response);
 	}
 
