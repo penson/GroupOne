@@ -42,8 +42,8 @@ public class HomePage extends HttpServlet {
 		HttpSession userSession = request.getSession(false);
 		//email = userSession.getAttribute("userEmail").toString();
 		
-		String name = request.getParameter("button");
-		
+		String name = request.getParameter("button").toString();
+		System.out.println(name);
 		if(name.equals("Home"))
 		{
 			request.getRequestDispatcher("/homeProposal.jsp").forward(request, response);

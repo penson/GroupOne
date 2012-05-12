@@ -9,7 +9,7 @@
 <h1 style="text-align:center; color:blue"> Groupone's Groupon</h1>
 <p style="text-align:center; color:blue">Welcome ${account.getFirstName()}</p>
 
-<form id="homePage"; action="HomePage"; method="post">
+<form id="homePage" action="HomePage" method="post">
 	<table style="text-align: center; width: 100%;" border="0"
  	cellpadding="2" cellspacing="2">	
   		<tbody>
