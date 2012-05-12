@@ -2,6 +2,8 @@ package groupone;
 
 
 import java.io.IOException;
+import java.util.Enumeration;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,9 +42,21 @@ public class HomePage extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession userSession = request.getSession(false);
-		email = userSession.getAttribute("userEmail").toString();
+		//email = userSession.getAttribute("userEmail").toString();
+		
+		String ParameterNames = "";
+		
+		for(Enumeration<String> e = request.getParameterNames();
+				e.hasMoreElements(); ){
+			ParameterNames = (String)e.nextElement();
+			System.out.println(ParameterNames);
+		}
+		
+		
+		
 		
 		String name = request.getParameter("button");
+		System.out.println(name);
 		
 		if(name.equals("Home"))
 		{
