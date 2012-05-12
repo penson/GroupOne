@@ -39,6 +39,11 @@
 <table cellpadding="1" cellspacing="0" width="300">
 <tbody>
 <tr>
+<td colspan="2"><font color="red">${emailChange}</font>
+<font color="red">${emailError}</font>
+</td>
+</tr>
+<tr>
 <td width="300">Current Email:</td>
 <td>${userEmail}
 </td>
@@ -52,7 +57,8 @@
 
 <tr>
 <td></td>
-<td height="50"><input value="Submit" type="submit">
+<td height="50">
+<input value="Submit" type="submit">
 <td>
 </tr>
 </tbody>
@@ -65,7 +71,7 @@
 <p>
 <p>
 
-<h3>Change your Email</h3>
+<h3>Change your Password</h3>
 <form action="ChangePassword" id=changePasswordForm" method="post">
 <div id="changePasswordContainer">
 <table cellpadding="1" cellspacing="0">
@@ -85,7 +91,8 @@
 
 <tr>
 <td></td>
-<td height="50"><input value="Submit" type="submit">
+<td height="50">
+<input value="Submit" type="submit">
 </td>
 </tr>
 </tbody>
