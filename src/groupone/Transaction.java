@@ -8,6 +8,10 @@ public class Transaction {
 	private String type;
 	private String email;
 	
+	public Transaction() {
+		
+	}
+	
 	public String getIdTransaction() {
 		return idTransaction;
 	}
