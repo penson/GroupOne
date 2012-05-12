@@ -25,23 +25,28 @@
 	</tr>
 
 <%
-	ArrayList<Transaction> transactions = (ArrayList<Transaction>)request.getAttribute("orderHist");
-
+	HttpSession userSession = request.getSession(false);
+	String accountId = userSession.getAttribute("accountId").toString();
+	ArrayList<Transaction> transactions = DBOperation.getTransactionList();
+	//ArrayList<Transaction> filtered = new ArrayList<Transaction>();
+	
 	for(Transaction t : transactions) {
-		String couponId = t.getIdTransCoup();
-		Coupon coupon = DBOperation.searchCoupon(couponId);
+		if(t.getIdTransAcct().equalsIgnoreCase(accountId)) {
+			String couponId = t.getIdTransCoup();
+			Coupon coupon = DBOperation.searchCoupon(couponId);
 %>
 
-	<tr>
-	<td><%=t.getIdTransaction()%></td>
-	<td><%=t.getDate()%></td>
-	<td><%=coupon.getTitle()%></td>
-	<td><%=coupon.getPrice()%></td>
-	<td><%=coupon.getCategory()%></td>
-	<td><%=t.getType()%></td>
-	</tr>
+			<tr>
+			<td><%=t.getIdTransaction()%></td>
+			<td><%=t.getDate()%></td>
+			<td><%=coupon.getTitle()%></td>
+			<td><%=coupon.getPrice()%></td>
+			<td><%=coupon.getCategory()%></td>
+			<td><%=t.getType()%></td>
+			</tr>
 
 <%
+		}
 	}
 %>
 
