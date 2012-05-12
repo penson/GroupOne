@@ -40,14 +40,16 @@
 <tbody>
 <tr>
 <td width="300">Current Email:</td>
-<td>${userEmail}
-</td>
+<td><%= ((Account)session.getAttribute("account")).getEmail()%></td>
 </tr>
 
 <tr>
 <td>New Email:</td>
-<td><input class="inputtext" id="newEmail" name="newEmail" type="text">
-</td>
+<td><input class="inputtext" id="newEmail" name="newEmail" type="text"></td>
+</tr>
+
+<tr>
+<td><font color="red">${emailChange}</font></td>
 </tr>
 
 <tr>
@@ -65,7 +67,7 @@
 <p>
 <p>
 
-<h3>Change your Email</h3>
+<h3>Change your Password</h3>
 <form action="ChangePassword" id=changePasswordForm" method="post">
 <div id="changePasswordContainer">
 <table cellpadding="1" cellspacing="0">
@@ -79,8 +81,18 @@
 
 <tr>
 <td>New Password:</td>
-<td><input class="inputtext" id="newPassword" name="currentPassword" type="password">
+<td><input class="inputtext" id="newPassword" name="newPassword" type="password">
 </td>
+</tr>
+
+<tr>
+<td>Confirm Password:</td>
+<td><input class="inputtext" id="confirmPassword" name="confirmPassword" type="password">
+</td>
+</tr>
+
+<tr>
+<td><font color="red">${errorMsg}</font></td>
 </tr>
 
 <tr>

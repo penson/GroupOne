@@ -492,8 +492,7 @@ public class DBOperation {
 	{
 		Connection con = new DBConnection().getDBConnection();
 		
-		String sqlCmd = "UPDATE account SET password = " + "'" + newPassword + "'" +
-				"WHERE email = " + "'" + email + "'";
+		String sqlCmd = "UPDATE account SET password = '" + newPassword + "' WHERE email = '" + email + "'";
 		try 
 		{
 			Statement stmt = con.createStatement();

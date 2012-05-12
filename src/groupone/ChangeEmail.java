@@ -43,12 +43,12 @@ public class ChangeEmail extends HttpServlet {
 		if(DBOperation.changeEmail(currentEmail, newEmail))
 		{
 			request.setAttribute("emailChange", "Email Address Updated");
-			request.getRequestDispatcher("/page_account.jsp").forward(request, response);
 			account.setEmail(newEmail);
+			request.getRequestDispatcher("/page_account.jsp").forward(request, response);
 		}
 		else
 		{
-			request.setAttribute("emailError", "Error Changing Email Address");
+			request.setAttribute("emailChange", "Error Changing Email Address");
 			request.getRequestDispatcher("/page_account.jsp").forward(request, response);
 		}
 	}
