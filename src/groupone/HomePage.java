@@ -40,7 +40,7 @@ public class HomePage extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession userSession = request.getSession(false);
-		//email = userSession.getAttribute("userEmail").toString();
+		email = userSession.getAttribute("userEmail").toString();
 		
 		String name = request.getParameter("button");
 		
@@ -59,6 +59,14 @@ public class HomePage extends HttpServlet {
 		else if(name.equals("Account"))
 		{
 			request.getRequestDispatcher("/page_account.jsp").forward(request, response);
+		}
+		else if(name.equals("Add Coupon"))
+		{
+			request.getRequestDispatcher("/add_coupon.jsp").forward(request, response);
+		}
+		else if(name.equals("Delete Coupon"))
+		{
+			request.getRequestDispatcher("/delete_coupon.jsp").forward(request, response);
 		}
 		else 
 		{
