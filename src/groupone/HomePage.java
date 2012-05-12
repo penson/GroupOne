@@ -2,6 +2,7 @@ package groupone;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
@@ -42,7 +43,7 @@ public class HomePage extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession userSession = request.getSession(false);
-		//email = userSession.getAttribute("userEmail").toString();
+		String accountId = userSession.getAttribute("accountId").toString();
 		
 		String ParameterNames = "";
 		
@@ -68,6 +69,7 @@ public class HomePage extends HttpServlet {
 		}
 		else if(name.equals("Order History")) 
 		{
+			request.setAttribute("orderHist", filterOrderHist(accountId));
 			request.getRequestDispatcher("/page_orderHist.jsp").forward(request, response);
 		}
 		else if(name.equals("Account"))
@@ -86,6 +88,19 @@ public class HomePage extends HttpServlet {
 		{
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}		
+	}
+	
+	private ArrayList<Transaction> filterOrderHist(String accountId) {
+		ArrayList<Transaction> transactions = DBOperation.getTransactionList();
+		ArrayList<Transaction> filtered = new ArrayList<Transaction>();
+		
+		for(Transaction t : transactions) {
+			if(t.getIdTransAcct().equalsIgnoreCase(accountId)) {
+				filtered.add(t);
+			}
+		}
+		
+		return filtered;
 	}
 
 }
