@@ -39,26 +39,22 @@
 <table cellpadding="1" cellspacing="0" width="300">
 <tbody>
 <tr>
-<td colspan="2"><font color="red">${emailChange}</font>
-<font color="red">${emailError}</font>
-</td>
-</tr>
-<tr>
 <td width="300">Current Email:</td>
-<td>${userEmail}
-</td>
+<td><%= ((Account)session.getAttribute("account")).getEmail()%></td>
 </tr>
 
 <tr>
 <td>New Email:</td>
-<td><input class="inputtext" id="newEmail" name="newEmail" type="text">
-</td>
+<td><input class="inputtext" id="newEmail" name="newEmail" type="text"></td>
+</tr>
+
+<tr>
+<td><font color="red">${emailChange}</font></td>
 </tr>
 
 <tr>
 <td></td>
-<td height="50">
-<input value="Submit" type="submit">
+<td height="50"><input value="Submit" type="submit">
 <td>
 </tr>
 </tbody>
@@ -85,14 +81,23 @@
 
 <tr>
 <td>New Password:</td>
-<td><input class="inputtext" id="newPassword" name="currentPassword" type="password">
+<td><input class="inputtext" id="newPassword" name="newPassword" type="password">
 </td>
 </tr>
 
 <tr>
+<td>Confirm Password:</td>
+<td><input class="inputtext" id="confirmPassword" name="confirmPassword" type="password">
+</td>
+</tr>
+
+<tr>
+<td><font color="red">${errorMsg}</font></td>
+</tr>
+
+<tr>
 <td></td>
-<td height="50">
-<input value="Submit" type="submit">
+<td height="50"><input value="Submit" type="submit">
 </td>
 </tr>
 </tbody>
