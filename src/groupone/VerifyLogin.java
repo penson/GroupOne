@@ -47,9 +47,10 @@ public class VerifyLogin extends HttpServlet {
 			request.setAttribute("account", account);
 			session.setAttribute("accountId", account.getId());
 			session.setAttribute("userEmail", email);
+			session.setAttribute("account", account);
 			
 			if (DBOperation.isVendor(email)	) {
-				request.getRequestDispatcher("/vendor.jsp").forward(request, response);
+				request.getRequestDispatcher("/page_vendorHome.jsp").forward(request, response);
 			}
 			else {
 				request.getRequestDispatcher("/page_home.jsp").forward(request, response);
