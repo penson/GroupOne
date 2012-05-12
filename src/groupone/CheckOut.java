@@ -51,7 +51,8 @@ public class CheckOut extends HttpServlet {
 		String[] couponIds = (String[])request.getSession().getAttribute(objectId);
 		boolean gift = false;
 		
-		if(request.getParameter("gift").equalsIgnoreCase("ON")) {
+		if(request.getParameter("gift").equalsIgnoreCase("ON")) 
+		{
 			gift = true;
 		}
 		

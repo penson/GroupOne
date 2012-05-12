@@ -4,24 +4,58 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style type="text/css">
+TABLE
+.menu { border-collapse: collapse; float:right;}
+</style>
+<script src="menuscript.js" language="javascript" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="menustyle.css" media="screen, print" />
 <meta content="text/html; charset=ISO-8859-1"
 http-equiv="content-type">
-<title></title>
+<title>Add Coupon</title>
 </head>
-<body>
-<p><b>${couponAdded}</b></p>
-<p><b>${couponError}</b></p>
+<body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
+
+<div id="banner">
+<img src="http://i.imgur.com/xchNB.png" align="left" style="z-index:0" style="margin-bottom:0;">
+
+<form id="homePage" action="HomePage" method="post">
+    	<table style="margin-right:0px;margin-left:auto;">
+    	<tr>
+    	<td class="menu" align="right">
+
+<button type="submit" style="border: 0; background: transparent" name="button" value="Home"><img src="buttons/homeUp.png" onmouseover="setOverImg('8','');" onmouseout="setOutImg('8','');" id="button8" alt="submit" border="0" WIDTH="100%"></button>
+<button type="submit" style="border: 0; background: transparent" name="button" value="Add Coupon"><img src="buttons/addUp.png" onmouseover="setOverImg('5','');" onmouseout="setOutImg('5','');" id="button5" alt="submit" border="0" WIDTH="100%"></button>
+<button type="submit" style="border: 0; background: transparent" name="button" value="Delete Coupon"><img src="buttons/deleteUp.png" onmouseover="setOverImg('6','');" onmouseout="setOutImg('6','');" id="button6" alt="submit" border="0" WIDTH="100%"></button>
+<button type="submit" style="border: 0; background: transparent" name="button" value="Account"><img src="buttons/accountUp.png" onmouseover="setOverImg('3','');" onmouseout="setOutImg('3','');" id="button3" alt="submit" border="0"></button>
+<button type="submit" style="border: 0; background: transparent" name="button" value="Log Out"><img src="buttons/logoutUp.png" onmouseover="setOverImg('4','');" onmouseout="setOutImg('4','');" id="button4" alt="submit" border="0"></button>
+
+</td>
+</tr>
+</table>
+</form>
+</div>
+
+<table border="0" align="center"
+ 	cellpadding="0" cellspacing="0" style="text-align: center; width: 90%;">
+  <tr>
+<td align="center" valign="top"><h1 style="text-align:center; color:gray">Add Coupon</h1>
+  </td>
+</tr>
+</table>
+
+<p align="center"><b>${couponAdded}</b></p>
+<p align="center"><b>${couponError}</b></p>
 <p>
 <p>
 <p>
 <p>
 <form action="AddCoupon" id="addCouponForm" method="post">
-<div class="mbs mainTitle fsl fwb fcb" style="text-align: left;">Complete Information To Add Coupon</div>
+<div class="mbs mainTitle fsl fwb fcb" style="text-align: center;">Complete Information To Add Coupon</div>
 <div id="addCoupon_container">
-<table class="uiGrid editor" align="left" cellpadding="1"
-cellspacing="0">
 <p>
 <p>
+<table class="uiGrid editor" align="center" cellpadding="1" cellspacing="0">
 <tbody>
 <tr>
 <td class="label"> <label for="title">Coupon Title:</label></td>
@@ -118,17 +152,14 @@ type="text"></div>
 <option value="homedecorating">Home Decorating</option>
 </select>
 </div>
+<tr>
+<td></td>
+<td height="50"><input value="Submit" type="submit">
+</td>
+</tr>
 </tbody>
 </table>
 </div>
-<br>
-&nbsp;
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>
-<p>
-<br>
-<input value="Submit" type="submit">
 </form>
 </body>
 </html>

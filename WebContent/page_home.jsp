@@ -1,10 +1,16 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1"
- http-equiv="content-type">
-  <title></title>
+	<link rel="stylesheet" href="menu/menu_style.css" type="text/css" />
 </head>
 <body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
+<ul id="menu">
+   <li><a href="" target="_self" title="Home" class="current">Home</a></li>
+   <li><a href="" target="_self" title="Browse">Browse</a></li>
+   <li><a href="" target="_self" title="Order History">Order History</a></li>
+   <li><a href="" target="_self" title="Account">Account</a></li>
+   <li><a href="" target="_self" title="Log Out">Log Out</a></li>
+</ul>
 
 <h1 style="text-align:center; color:blue"> Groupone's Groupon</h1>
 <p style="text-align:center; color:blue">Welcome ${account.getFirstName()}</p>
