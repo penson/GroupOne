@@ -60,7 +60,7 @@ public class CheckOut extends HttpServlet {
 		DBOperation.createTransaction(accountId, userEmail, couponIds, gift);
 		
 		ArrayList<Transaction> trans = DBOperation.getTransactionList();
-		System.out.println("array list size: "+trans.size() +" (from CheckOut.java)");
+
 		for(Transaction t : trans) {
 			System.out.println(t.getIdTransaction());
 			System.out.println(t.getIdTransAcct());
@@ -68,6 +68,7 @@ public class CheckOut extends HttpServlet {
 			System.out.println(t.getDate());
 			System.out.println(t.getType());
 			System.out.println(t.getEmail());
+			System.out.println();
 		}
 		
 		request.getRequestDispatcher("/page_invoice.jsp").forward(request, response);
