@@ -17,31 +17,36 @@
 <table cellpadding="15" border="1" style="background-color: #ffffcc;">
 	<tr>
 	<td>Transaction ID</td>
-	<td>Date</td>
 	<td>Title</td>
+	<td>Date</td>
 	<td>Price</td>
 	<td>Category</td>
 	<td>Type</td>
 	</tr>
 
 <%
-	ArrayList<Transaction> transactions = (ArrayList<Transaction>)request.getAttribute("orderHist");
-
+	HttpSession userSession = request.getSession(false);
+	String accountId = userSession.getAttribute("accountId").toString();
+	ArrayList<Transaction> transactions = DBOperation.getTransactionList();
+	//ArrayList<Transaction> filtered = new ArrayList<Transaction>();
+	
 	for(Transaction t : transactions) {
-		String couponId = t.getIdTransCoup();
-		Coupon coupon = DBOperation.searchCoupon(couponId);
+		if(t.getIdTransAcct().equalsIgnoreCase(accountId)) {
+			String couponId = t.getIdTransCoup();
+			Coupon coupon = DBOperation.searchCoupon(couponId);
 %>
 
-	<tr>
-	<td><%=t.getIdTransaction()%></td>
-	<td><%=t.getDate()%></td>
-	<td><%=coupon.getTitle()%></td>
-	<td><%=coupon.getPrice()%></td>
-	<td><%=coupon.getCategory()%></td>
-	<td><%=t.getType()%></td>
-	</tr>
+			<tr>
+			<td><%=t.getIdTransaction()%></td>
+			<td><%=coupon.getTitle()%></td>
+			<td><%=t.getDate()%></td>
+			<td><%=coupon.getPrice()%></td>
+			<td><%=coupon.getCategory()%></td>
+			<td><%=t.getType()%></td>
+			</tr>
 
 <%
+		}
 	}
 %>
 
