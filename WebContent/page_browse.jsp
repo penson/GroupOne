@@ -69,8 +69,6 @@
 </table>
 </form>
 
-<p><a href="page_home.jsp">Back</a></p>
-
 
 </body>
 </html>
