@@ -18,15 +18,15 @@
 </head>
 <body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
 <div id="banner">
-<img style="float:left" src="http://i.imgur.com/xchNB.png" />
+<img style="float:left" src="http://i.imgur.com/qxKzB.png" />
 
 <form name="homePage" action="HomePage" method="post">
 <ul id="menu">
-   <li><a href="home_proposal.jsp" target="_self" title="Home">Home</a></li>
+   <li><a href="homeProposal.jsp" target="_self" title="Home">Home</a></li>
    <li><a href="page_browse.jsp" target="_self" title="Browse">Browse</a></li>
    <li><a href="page_orderHist.jsp" target="_self" title="Order History">Order History</a></li>
    <li><a href="page_account.jsp" target="_self" title="Account">Account</a></li>
-   <li><a href="index.jsp" target="_self" title="Account">Log Out</a></li>
+   <li><a href="index.jsp" target="_self" title="Log Out">Log Out</a></li>
 	
 </ul>
 

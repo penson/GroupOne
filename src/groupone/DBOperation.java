@@ -283,6 +283,9 @@ public class DBOperation {
 	public static boolean createTransaction(String accountId, String userEmail, String[] couponIds, boolean gift) {
 		Connection con = new DBConnection().getDBConnection();
 		StringBuilder sqlCmd = new StringBuilder();
+		
+		accountId = accountId.toUpperCase();		
+		userEmail = userEmail.toUpperCase();
 		String type = "SELF";
 		
 		if(gift) {
@@ -292,7 +295,7 @@ public class DBOperation {
 		try {
 			Statement stmt = con.createStatement();
 			
-			for(int i=0; i<couponIds.length; i++) {				
+			for(int i=0; i<couponIds.length; i++) {
 				sqlCmd.delete(0, sqlCmd.length());
 				sqlCmd.append("INSERT into transaction (idTransAcct, idTransCoup, type, email) VALUES ('"
 						 + accountId + "', '" + couponIds[i] + "', '" + type + "', '" + userEmail + "')");
@@ -321,11 +324,11 @@ public class DBOperation {
 			while(rs.next()) {
 				Transaction trans = new Transaction();
 				trans.setIdTransaction(rs.getString(1));
-				trans.setIdTransAcct(rs.getNString(2));
+				trans.setIdTransAcct(rs.getString(2));
 				trans.setIdTransCoup(rs.getString(3));
 				trans.setDate(rs.getString(4));
 				trans.setType(rs.getString(5));
-				trans.setType(rs.getString(6));
+				trans.setEmail(rs.getString(6));
 				
 				transactions.add(trans);
 			}
