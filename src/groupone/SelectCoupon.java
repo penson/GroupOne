@@ -43,15 +43,16 @@ public class SelectCoupon extends HttpServlet {
 		if(couponIds != null) {
 			ArrayList<Coupon> coupons = DBOperation.searchCoupon(couponIds);
 			String objectId = UUID.randomUUID().toString();
+			String objectId2 = UUID.randomUUID().toString();
 			
 			request.getSession().setAttribute(objectId, couponIds);
+			request.getSession().setAttribute(objectId2, coupons);
+			
 			request.setAttribute("objectId", objectId);
+			request.setAttribute("objectId2", objectId2);
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("gift", gift);
 			request.getRequestDispatcher("/page_checkOut.jsp").forward(request, response);
-		}
-		else {
-			//request.getRequestDispatcher("/page_selectCoupon.jsp").forward(request, response);
 		}
 	}
 

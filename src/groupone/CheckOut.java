@@ -36,18 +36,11 @@ public class CheckOut extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*
-		String[] textFields = request.getParameterValues("textField");		
-		for(String s: textFields) {
-			if(s.isEmpty()) {
-				request.setAttribute("errorMsg", "Cannot leave blank information");
-				request.getRequestDispatcher("/.jsp").forward(request, response);
-			}
-		}
-		*/
+
 		String accountId = request.getSession().getAttribute("accountId").toString();
 		String userEmail = request.getSession().getAttribute("userEmail").toString();
 		String objectId = request.getParameter("objectId");
+		String objectId2 = request.getParameter("objectId2");
 		String[] couponIds = (String[])request.getSession().getAttribute(objectId);
 		boolean gift = false;
 		
@@ -59,18 +52,7 @@ public class CheckOut extends HttpServlet {
 		DBOperation.updateCoupon(couponIds);
 		DBOperation.createTransaction(accountId, userEmail, couponIds, gift);
 		
-		ArrayList<Transaction> trans = DBOperation.getTransactionList();
-
-		for(Transaction t : trans) {
-			System.out.println(t.getIdTransaction());
-			System.out.println(t.getIdTransAcct());
-			System.out.println(t.getIdTransCoup());
-			System.out.println(t.getDate());
-			System.out.println(t.getType());
-			System.out.println(t.getEmail());
-			System.out.println();
-		}
-		
+		request.setAttribute("coupons", request.getSession().getAttribute(objectId2));
 		request.getRequestDispatcher("/page_invoice.jsp").forward(request, response);
 	}
 

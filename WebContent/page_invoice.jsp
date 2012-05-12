@@ -5,12 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<script type="text/javascript">
+
+function delayer()
+{
+	window.location = 'page_home.jsp';
+}
+
+</script>
 </head>
-<body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
 
-<h1>Invoice</h1>
+<body onLoad="setTimeout('delayer()', 5000)" background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
 
-<p><a href="page_home.jsp">Back to home</a></p>
+<center><h2>Thank You!</h2>
+<p>You will be redirected in 5 seconds.</p></center>
 
 </body>
 </html>
