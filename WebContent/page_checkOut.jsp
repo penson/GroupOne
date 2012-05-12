@@ -44,8 +44,7 @@
 <form id=checkOut action="CheckOut" method="post">
 	<table>
 <%
-		if(request.getAttribute("gift") != null 
-		&& request.getAttribute("gift").toString().equalsIgnoreCase("ON")) {
+		if(request.getAttribute("gift") != null) {
 			out.println("<tr>");
 			out.println("<td>Recepient Email Address</td>");
 			out.println("<td><input type=\"text\" name=\"textField\">");
@@ -70,6 +69,7 @@
 		</tr>
 	</table>
 	<input type="hidden" name="objectId" value="${objectId}">
+	<input type="hidden" name="gift" value="${gift}">
 	<input type="submit" name="submit" value="Place Your Order">
 </form>
 

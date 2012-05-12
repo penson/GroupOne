@@ -1,6 +1,8 @@
 package groupone;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,11 +45,28 @@ public class CheckOut extends HttpServlet {
 			}
 		}
 		*/
+		String accountId = request.getSession().getAttribute("accountId").toString();
 		String userEmail = request.getSession().getAttribute("userEmail").toString();
 		String objectId = request.getParameter("objectId");
 		String[] couponIds = (String[])request.getSession().getAttribute(objectId);
+		boolean gift = false;
+		
+		if(request.getParameter("gift").equalsIgnoreCase("ON")) {
+			gift = true;
+		}
 		
 		DBOperation.updateCoupon(couponIds);
+		DBOperation.createTransaction(accountId, userEmail, couponIds, gift);
+		
+		ArrayList<Transaction> trans = DBOperation.getTransactionList();
+		for(Transaction t : trans) {
+			System.out.println(t.getIdTransaction());
+			System.out.println(t.getIdTransAcct());
+			System.out.println(t.getIdTransCoup());
+			System.out.println(t.getDate());
+			System.out.println(t.getType());
+			System.out.println(t.getEmail());
+		}
 		
 		request.getRequestDispatcher("/page_invoice.jsp").forward(request, response);
 	}

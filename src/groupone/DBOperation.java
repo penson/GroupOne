@@ -253,18 +253,25 @@ public class DBOperation {
 	public static void updateCoupon(String[] couponIds) {
 		Connection con = new DBConnection().getDBConnection();
 		StringBuilder sqlCmd = new StringBuilder();
+		StringBuilder sqlCmd2 = new StringBuilder();
 		
 		try {
 			Statement stmt = con.createStatement();
 			
 			for(int i=0; i<couponIds.length; i++) {
 				int quantity = Integer.parseInt(searchCoupon(couponIds[i]).getQuantity());
+				int sold = Integer.parseInt(searchCoupon(couponIds[i]).getSold());
 				Integer newQuantity = quantity - 1;
+				Integer newSold = sold + 1;
 				
 				sqlCmd.delete(0, sqlCmd.length());
+				sqlCmd2.delete(0, sqlCmd2.length());
 				sqlCmd.append("UPDATE coupon SET quantity = " + "'" + newQuantity.toString() + "'" +
 						"WHERE idCoupon = " + "'" + couponIds[i] + "'");
+				sqlCmd2.append("UPDATE coupon SET sold = " + "'" + newSold.toString() + "'" +
+						"WHERE idCoupon = " + "'" + couponIds[i] + "'");
 				stmt.executeUpdate(sqlCmd.toString());
+				stmt.executeUpdate(sqlCmd2.toString());
 			}
 			
 			stmt.close();
@@ -273,22 +280,62 @@ public class DBOperation {
 		} catch(SQLException e) {}
 	}
 	
-	public static void createTransaction(String[] couponIds) {
+	public static boolean createTransaction(String accountId, String userEmail, String[] couponIds, boolean gift) {
 		Connection con = new DBConnection().getDBConnection();
 		StringBuilder sqlCmd = new StringBuilder();
+		String type = "SELF";
+		
+		if(gift) {
+			type = "GIFT";
+		}
 		
 		try {
 			Statement stmt = con.createStatement();
 			
-			for(int i=0; i<couponIds.length; i++) {
-				Coupon coupon = DBOperation.searchCoupon(couponIds[i]);
-				//to be finished...
+			for(int i=0; i<couponIds.length; i++) {				
+				sqlCmd.delete(0, sqlCmd.length());
+				sqlCmd.append("INSERT into transaction (idTransAcct, idTransCoup, type, email) VALUES ('"
+						 + accountId + "', '" + couponIds[i] + "', '" + type + "', '" + userEmail + "')");
+				stmt.executeUpdate(sqlCmd.toString());
+			}
+			
+			stmt.close();
+			con.close();
+			
+		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public static ArrayList<Transaction> getTransactionList() {
+		Connection con = new DBConnection().getDBConnection();
+		ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+		
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM transaction");
+			
+			while(rs.next()) {
+				Transaction trans = new Transaction();
+				trans.setIdTransaction(rs.getString(1));
+				trans.setIdTransAcct(rs.getNString(2));
+				trans.setIdTransCoup(rs.getString(3));
+				trans.setDate(rs.getString(4));
+				trans.setType(rs.getString(5));
+				trans.setType(rs.getString(6));
+				
+				transactions.add(trans);
 			}
 			
 			stmt.close();
 			con.close();
 			
 		} catch(SQLException e) {}
+		
+		return transactions;
 	}
 	
 	public static ArrayList<String> queryToArrayList(String sqlCmd) {

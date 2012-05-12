@@ -10,10 +10,6 @@
 
 <h1>Order History</h1>
 
-<%
-//System.out.println("from " + request.getAttribute("email"));
-%>
-
 <p><a href="page_home.jsp">Back</a></p>
 
 </body>
