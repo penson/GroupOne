@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
 <%@ page import="groupone.*" %>
 <html>
 <head>
@@ -20,16 +20,17 @@
 <table style="text-align: center; width: 80%;" border="0" cellpadding="2" cellspacing="2">
     	<tr><td align="right">
 
-<input type="submit" name="button" value="Browse">
-<input type="image" src="buttons/homeUp.png" onmouseover="setOverImg('8','');" onmouseout="setOutImg('8','');" id="button8" name="button" value="Home">
-<input type="image" src="buttons/browseUp.png" value="Browse" onmouseover="setOverImg('1','');" onmouseout="setOutImg('1','');" id="button1" name="button">
+<button type="submit" name="button" value="Home"><img src="buttons/homeUp.png" onmouseover="setOverImg('8','');" onmouseout="setOutImg('8','');" id="button8" alt="submit" border="0" /></button>
+<!--  <input type="image" name="button" value="Home" alt="Home" src="buttons/homeUp.png" onmouseover="setOverImg('8','');" onmouseout="setOutImg('8','');" id="button8" />-->
+<button type="submit" name="button" value="Browse"><img src="buttons/browseUp.png" onmouseover="setOverImg('1','');" onmouseout="setOutImg('1','');" id="button1" alt="submit" border="0" /></button>
+<!-- <input type="image" src="buttons/browseUp.png" value="Browse" onmouseover="setOverImg('1','');" onmouseout="setOutImg('1','');" id="button1" name="button"> -->
 <input type="image" src="buttons/orderHistoryUp.png" value="Order History" onmouseover="setOverImg('2','');" onmouseout="setOutImg('2','');" id="button2" name="button">
 <input type="image" src="buttons/accountUp.png" value="Account" onmouseover="setOverImg('3','');" onmouseout="setOutImg('3','');" id="button3" name="button">
-<input type="image" src="buttons/logoutUp.png" value="Log Out" onmouseover="setOverImg('4','');" onmouseout="setOutImg('4','');" id="button4" name="button">
+<input type="image" src="buttons/logoutUp.png" value="Log Out" onmouseover="setOverImg('4','');" onmouseout="setOutImg('4','');" id="button4" name="button" onsubmit="submit-form();"> 
 
 </td></tr></table>
-	
-</form>
+</form>	
+
 </div>
 
 <table border="0"

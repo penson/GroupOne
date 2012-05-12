@@ -14,7 +14,9 @@ totalButtons = upSources.length;
 
 //*** MAIN BUTTONS FUNCTIONS ***//
 // PRELOAD MAIN MENU BUTTON IMAGES
-function preload() {
+function preload() 
+{
+	var x;
 	for ( x=0; x<totalButtons; x++ ) {
 		buttonUp = new Image();
 		buttonUp.src = buttonFolder + upSources[x];
