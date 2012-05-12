@@ -69,6 +69,7 @@
 		</tr>
 	</table>
 	<input type="hidden" name="objectId" value="${objectId}">
+	<input type="hidden" name="coupons" value="${objectId2}">
 	<input type="hidden" name="gift" value="${gift}">
 	<input type="submit" name="submit" value="Place Your Order">
 </form>

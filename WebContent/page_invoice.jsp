@@ -1,38 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<%@ page import="groupone.*" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<title>Invoice</title>
-<link rel="stylesheet" href="menu/menu_style.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+function delayer()
+{
+	window.location = 'page_home.jsp';
+}
+
+</script>
 </head>
-<body background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
-<div id="banner">
-<img style="float:left" src="http://i.imgur.com/qxKzB.png" />
 
-<form name="homePage" action="HomePage" method="post">
-<ul id="menu">
-   <li><a href="page_home.jsp" target="_self" title="Home">Home</a></li>
-   <li><a href="page_browse.jsp" target="_self" title="Browse">Browse</a></li>
-   <li><a href="page_orderHist.jsp" target="_self" title="Order History">Order History</a></li>
-   <li><a href="page_account.jsp" target="_self" title="Account">Account</a></li>
-   <li><a href="index.jsp" target="_self" title="Log Out">Log Out</a></li>
-	
-</ul>
+<body onLoad="setTimeout('delayer()', 5000)" background="http://assets2.grouponcdn.com/images/groupon/backgrounds/burst_green2.jpg?c2gz3tdb">
 
-</form>
-</div>
-
-<table border="0"
- 	cellpadding="0" cellspacing="0" style="text-align: center; width: 90%;">
-  <tr>
-<td align="center" valign="top"><h1 style="text-align:center; color:gray">Invoice</h1>
-  </td>
-</tr>
-</table>
-
-<p><a href="page_home.jsp">Back to home</a></p>
+<center><h2>Thank You!</h2>
+<p>You will be redirected in 5 seconds.</p></center>
 
 </body>
 </html>
