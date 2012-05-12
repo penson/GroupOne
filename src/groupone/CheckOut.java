@@ -59,6 +59,7 @@ public class CheckOut extends HttpServlet {
 		DBOperation.createTransaction(accountId, userEmail, couponIds, gift);
 		
 		ArrayList<Transaction> trans = DBOperation.getTransactionList();
+		System.out.println("array list size: "+trans.size() +" (from CheckOut.java)");
 		for(Transaction t : trans) {
 			System.out.println(t.getIdTransaction());
 			System.out.println(t.getIdTransAcct());

@@ -319,6 +319,7 @@ public class DBOperation {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM transaction");
 			
 			while(rs.next()) {
+				System.out.println("yes (from getTransactionList())");
 				Transaction trans = new Transaction();
 				trans.setIdTransaction(rs.getString(1));
 				trans.setIdTransAcct(rs.getNString(2));
