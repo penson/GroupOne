@@ -486,6 +486,7 @@ public class DBOperation {
 		
 		return found;
 	}
+	
 	public static boolean resetPassword(String email, String newPassword)
 	{
 		Connection con = new DBConnection().getDBConnection();
