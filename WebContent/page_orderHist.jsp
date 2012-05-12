@@ -17,8 +17,8 @@
 <table cellpadding="15" border="1" style="background-color: #ffffcc;">
 	<tr>
 	<td>Transaction ID</td>
-	<td>Date</td>
 	<td>Title</td>
+	<td>Date</td>
 	<td>Price</td>
 	<td>Category</td>
 	<td>Type</td>
@@ -38,8 +38,8 @@
 
 			<tr>
 			<td><%=t.getIdTransaction()%></td>
-			<td><%=t.getDate()%></td>
 			<td><%=coupon.getTitle()%></td>
+			<td><%=t.getDate()%></td>
 			<td><%=coupon.getPrice()%></td>
 			<td><%=coupon.getCategory()%></td>
 			<td><%=t.getType()%></td>
