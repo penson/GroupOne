@@ -61,7 +61,7 @@ public class HomePage extends HttpServlet {
 		
 		if(name.equals("Home"))
 		{
-			request.getRequestDispatcher("/homeProposal.jsp").forward(request, response);
+			request.getRequestDispatcher("/page_home.jsp").forward(request, response);
 		}
 		else if(name.equals("Browse")) 
 		{

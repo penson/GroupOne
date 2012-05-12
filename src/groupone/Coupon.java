@@ -10,6 +10,7 @@ public class Coupon {
 	private String category;
 	private String sold;
 	private String vendor;
+	private String image;
 	
 	public Coupon() {
 		
@@ -85,5 +86,13 @@ public class Coupon {
 
 	public void setSold(String sold) {
 		this.sold = sold;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }
