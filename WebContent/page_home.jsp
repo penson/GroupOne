@@ -27,7 +27,7 @@
 <table border="0"
  	cellpadding="0" cellspacing="0" style="text-align: center; width: 90%;">
   <tr>
-<td align="center" valign="top"><h1 style="text-align:center; color:blue">Welcome ${account.getFirstName()}</h1>
+<td align="center" valign="top"><h1 style="text-align:center; color:gray">Welcome ${account.getFirstName()}</h1>
   </td>
 </tr>
 </table>
