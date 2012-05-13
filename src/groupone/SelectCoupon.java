@@ -52,6 +52,7 @@ public class SelectCoupon extends HttpServlet {
 			request.setAttribute("objectId2", objectId2);
 			request.setAttribute("coupons", coupons);
 			request.setAttribute("gift", gift);
+			
 			request.getRequestDispatcher("/page_checkOut.jsp").forward(request, response);
 		}
 	}

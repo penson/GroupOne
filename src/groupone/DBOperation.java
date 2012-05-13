@@ -252,7 +252,6 @@ public class DBOperation {
 					coupon.setCategory(rs.getString(7));
 					coupon.setSold(rs.getString(8));
 					coupon.setVendor(rs.getString(9));
-					coupon.setImage(rs.getString(10));
 					coupons.add(coupon);
 				}
 			}
