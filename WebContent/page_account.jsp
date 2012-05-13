@@ -68,7 +68,7 @@
 <p>
 
 <h3>Change your Password</h3>
-<form action="ChangePassword" id=changePasswordForm" method="post">
+<form action="ChangePassword" id="changePasswordForm" method="post">
 <div id="changePasswordContainer">
 <table cellpadding="1" cellspacing="0">
 
@@ -104,8 +104,6 @@
 </table>
 </div>
 </form>
-
-<p><a href="page_home.jsp">Back</a></p>
 
 </body>
 </html>
