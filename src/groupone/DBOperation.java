@@ -171,6 +171,30 @@ public class DBOperation {
 		return account;
 	}
 	
+	public static Account getAccount(String accountId) {
+		Connection con = new DBConnection().getDBConnection();
+		Account account = new Account();
+		
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM account WHERE idAccount = '" + accountId + "'");
+		    
+			while(rs.next()) {
+				account.setId(rs.getString(1));
+				account.setEmail(rs.getString(2));
+				account.setPassword(rs.getString(3));
+				account.setFirstName(rs.getString(4));
+				account.setLastName(rs.getString(5));
+			}
+			
+			stmt.close();
+			con.close();
+			
+		} catch(SQLException e) {}
+		
+		return account;
+	}
+	
 	public static void disableCoupon(String couponId) {
 		Connection con = new DBConnection().getDBConnection();
 		
