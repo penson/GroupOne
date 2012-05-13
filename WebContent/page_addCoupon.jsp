@@ -132,14 +132,15 @@ type="text"></div>
 <td class="label"> <label for="category">Category:</label></td>
 <td>
 <div class="field_container"> <select name="category">	
-<option value="travel">Travel</option>
-<option value="food">Food</option>
-<option value="moving">Moving</option>
-<option value="health">Health</option>
-<option value="photography">Photography</option>
-<option value="footwear">Footwear</option>
-<option value="magazine">Magazine</option>
-<option value="homedecorating">Home Decorating</option>
+<option value="Travel">Travel</option>
+<option value="Food">Food</option>
+<option value="Moving">Moving</option>
+<option value="Health">Health</option>
+<option value="Photography">Photography</option>
+<option value="Footwear">Footwear</option>
+<option value="Magazone">Magazine</option>
+<option value="Homedecorating">Home Decorating</option>
+<option value="Other">Other</option>
 </select>
 </div>
 <tr>
