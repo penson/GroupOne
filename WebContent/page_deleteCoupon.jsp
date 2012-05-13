@@ -27,6 +27,18 @@
 </div>	
 
 <TABLE cellpadding="15" border="1" style="background-color: #ffffcc;">
+	<tr>
+	<td>Coupon ID</td>
+	<td>Title</td>
+	<td>Created</td>
+	<td>Expiration</td>
+	<td>Quantity</td>
+	<td>Sold</td>
+	<td>Price ($)</td>
+	<td>Category</td>
+	</tr>
+
+
 <%
 ArrayList<Coupon> coupons = DBOperation.getCouponList();
 
