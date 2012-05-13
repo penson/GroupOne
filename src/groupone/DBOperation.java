@@ -172,6 +172,19 @@ public class DBOperation {
 		return account;
 	}
 	
+	public static void disableCoupon(String couponId) {
+		Connection con = new DBConnection().getDBConnection();
+		
+		try {
+			Statement stmt = con.createStatement();
+			
+			stmt.executeUpdate("UPDATE coupon SET quantity=0, idVendor=0 WHERE idCoupon = '" + couponId + "'");
+
+		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public static void deleteCoupon(String couponId) {
 		Connection con = new DBConnection().getDBConnection();
 		Account account = new Account();
@@ -180,7 +193,9 @@ public class DBOperation {
 			Statement stmt = con.createStatement();
 			int rs = stmt.executeUpdate("DELETE FROM coupon WHERE idCoupon = '" + couponId + "'");
 
-		} catch(SQLException e) {}
+		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public static Coupon searchCoupon(String couponId) {

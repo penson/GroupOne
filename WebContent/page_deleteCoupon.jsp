@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="groupone.*" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <%@ page import="java.util.*" %>  
@@ -29,9 +28,20 @@
 
 <TABLE cellpadding="15" border="1" style="background-color: #ffffcc;">
 <%
-ArrayList<Coupon> coupons = (ArrayList<Coupon>)request.getAttribute("coupons");
+ArrayList<Coupon> coupons = DBOperation.getCouponList();
 
+ArrayList<Coupon> filtered = new ArrayList<Coupon>();
+
+System.out.println("AccountId: " + session.getAttribute("accountId"));
 for (Coupon c : coupons) {
+	if (c.getVendor().equalsIgnoreCase((String)session.getAttribute("accountId"))) {
+		filtered.add(c);
+		System.out.println(c.getTitle() + " - " + c.getId());
+	}
+		
+}
+
+for (Coupon c : filtered) {
 %>
 <TR>
 <TD><%=c.getId()%></TD>

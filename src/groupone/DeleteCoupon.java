@@ -36,27 +36,13 @@ public class DeleteCoupon extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("CouponId: " + request.getParameter("couponDelete"));
-		HttpSession session = request.getSession(true);
-		PrintWriter out = response.getWriter();
-
-        ArrayList<Coupon> coupons = DBOperation.getCouponList();
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {       
+        String couponId = request.getParameter("couponDelete").toString();
+        System.out.println("Deleting - " + couponId);
         
-        ArrayList<Coupon> filtered = new ArrayList<Coupon>();
+        DBOperation.disableCoupon(couponId);
         
-//        Account account = (Account) request.getAttribute("account");
-        System.out.println(request.getAttribute("accountId"));
-        for (Coupon c : coupons) {
-        	if (c.getVendor().equalsIgnoreCase((String)session.getAttribute("accountId"))) {
-        		filtered.add(c);
-        		System.out.println(c.getTitle());
-        	}
-        		
-        }
-        
-        request.setAttribute("coupons", filtered);
-        request.getRequestDispatcher("/delete_coupon.jsp").forward(request, response);
+        request.getRequestDispatcher("/page_deleteCoupon.jsp").forward(request, response);
 	}
 
 }
