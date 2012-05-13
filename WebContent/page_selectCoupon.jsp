@@ -1,6 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="groupone.Coupon" %>
-<%@page import="groupone.DBOperation"%>>
+<%@page import="groupone.DBOperation"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -57,16 +57,16 @@
 		String company = DBOperation.getAccount(c.getVendor()).getFirstName();
 %>
 
-	<tr>
-	<td><%=c.getId()%></td>
-	<td><%=c.getTitle()%></td>
-	<td><%=c.getExpireDate()%></td>
-	<td><%=c.getQuantity()%></td>
-	<td><%=c.getSold()%></td>
-	<td><%=c.getPrice()%></td>
-	<td><%=c.getCategory()%></td>
-	<td><%=company%></td>
-	<td><input type="checkbox" name="checkBox" value="<%=c.getId()%>">
+		<tr>
+		<td><%=c.getId()%></td>
+		<td><%=c.getTitle()%></td>
+		<td><%=c.getExpireDate()%></td>
+		<td><%=c.getQuantity()%></td>
+		<td><%=c.getSold()%></td>
+		<td><%=c.getPrice()%></td>
+		<td><%=c.getCategory()%></td>
+		<td><%=company%></td>
+		<td><input type="checkbox" name="checkBox" value="<%=c.getId()%>"></td>
 	</tr>
 	
 <% 		
