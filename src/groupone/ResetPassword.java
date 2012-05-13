@@ -1,6 +1,8 @@
 package groupone;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,6 +38,14 @@ public class ResetPassword extends HttpServlet {
 		String email = request.getParameter("email").toString();
 		String newPassword = request.getParameter("newPassword").toString();
 		String confirmPassword = request.getParameter("confirmPassword").toString();
+		
+		try {
+			newPassword = AeSimpleSHA1.SHA1(newPassword);
+			confirmPassword = AeSimpleSHA1.SHA1(confirmPassword);
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		if(DBOperation.emailExists(email))
 		{

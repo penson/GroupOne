@@ -2,6 +2,7 @@ package groupone;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -40,6 +41,13 @@ public class VerifyLogin extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		String email = request.getParameter("emailAddress").toString();
 		String pass = request.getParameter("password").toString();
+		
+		try {
+			pass = AeSimpleSHA1.SHA1(pass);
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		if (DBOperation.isValidLogin(email, pass)) {
 			Account account = DBOperation.getAccount(email, pass);

@@ -1,5 +1,7 @@
 package groupone;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,6 +43,12 @@ public class CreateCustomer extends HttpServlet {
 		String email = request.getParameter("c_reg_email__").toString();
 		String email2 = request.getParameter("c_reg_email_confirmation__").toString();
 		String pass = request.getParameter("c_reg_passwd__").toString();
+		try {
+			pass = AeSimpleSHA1.SHA1(pass);
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		if (firstName.equals("") || lastName.equals("") || email.equals("") || email2.equals("") || pass.equals("")) {
 			request.setAttribute("customer_error", "Uh-Oh! Did you forget something?");

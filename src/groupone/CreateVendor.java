@@ -1,5 +1,7 @@
 package groupone;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,7 +42,14 @@ public class CreateVendor extends HttpServlet {
 		String email = request.getParameter("v_reg_email__").toString();
 		String email2 = request.getParameter("v_reg_email_confirmation__").toString();
 		String pass = request.getParameter("v_reg_passwd__").toString();
-
+		try {
+			pass = AeSimpleSHA1.SHA1(pass);
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		if (firstName.equals("") || email.equals("") || email2.equals("") || pass.equals("")) {
 			request.setAttribute("vendor_error", "Uh-Oh! Did you forget something?");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
