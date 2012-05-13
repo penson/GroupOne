@@ -17,7 +17,7 @@
 <ul id="menu">
    <li><a href="page_vendorHome.jsp" target="_self" title="Home">Home</a></li>
    <li><a href="page_addCoupon.jsp" target="_self" title="Add Coupon">Add Coupon</a></li>
-   <li><a href="page_deleteCoupon.jsp" target="_self" title="Delete Coupon">Delete Coupon</a></li>
+   <li><a href="page_deleteCoupon.jsp" target="_self" title="View Coupons">View Coupons</a></li>
    <li><a href="page_vendorAccount.jsp" target="_self" title="Account">Account</a></li>
    <li><a href="index.jsp" target="_self" title="Log Out">Log Out</a></li>
 	

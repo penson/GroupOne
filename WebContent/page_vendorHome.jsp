@@ -106,7 +106,7 @@
 <ul id="menu">
    <li><a href="page_vendorHome.jsp" target="_self" title="Home">Home</a></li>
    <li><a href="page_addCoupon.jsp" target="_self" title="Add Coupon">Add Coupon</a></li>
-   <li><a href="page_deleteCoupon.jsp" target="_self" title="Delete Coupon">Delete Coupon</a></li>
+   <li><a href="page_deleteCoupon.jsp" target="_self" title="View Coupons">View Coupons</a></li>
    <li><a href="page_vendorAccount.jsp" target="_self" title="Account">Account</a></li>
    <li><a href="index.jsp" target="_self" title="Log Out">Log Out</a></li>
 	
@@ -119,12 +119,12 @@
 <table border="0"
  	cellpadding="0" cellspacing="0" style="text-align: center; width: 100%;">
   <tr>
-<td align="center" valign="top"><h1 style="text-align:center; color:blue">Welcome ${account.getFirstName()}</h1>
+<td align="center" valign="top"><h1 style="text-align:center; color:gray">Welcome ${account.getFirstName()}</h1>
   <div align="center">
     <p>
     <p>
     <p>   
-    <p><h1 style="text-align:center; color:blue">Current Coupon Stats</h1>
+    <p><h1 style="text-align:center; color:gray">Current Coupon Stats</h1>
 </div></td>
 </tr>
 </table>
