@@ -6,8 +6,6 @@
 <head>
 <title>Vendor Page</title>
 <link rel="stylesheet" href="menu/menu_style.css" type="text/css" />
-
-<link rel="stylesheet" href="amcharts/style.css" type="text/css">
 <script src="amcharts/amcharts.js" type="text/javascript"></script>        
         <script type="text/javascript">
             var chart;
@@ -17,16 +15,49 @@
             AmCharts.ready(function () {
             	chartData.push({
             		date: new Date(2012,02,02),
-            		sold: 10
+            		chicken: 1,
+            		beef: 2,
+            		meatballs: 20 
+            	},{
+            		date: new Date(2012,02,03),
+            		chicken: 2,
+            		beef: 1,
+            		meatballs: 4 
+            	},{
+            		date: new Date(2012,02,04),
+            		chicken: 3,
+            		beef: 5,
+            		meatballs: 6 
             	},{
             		date: new Date(2012,02,05),
-            		sold: 20
+            		chicken: 1,
+            		beef: 5,
+            		meatballs: 10
             	},{
             		date: new Date(2012,02,06),
-            		sold: 100
+            		chicken: 0,
+            		beef: 2,
+            		meatballs: 4
             	},{
             		date: new Date(2012,02,07),
-            		sold: 30
+            		chicken: 1,
+            		beef: 8,
+            		meatballs: 15 
+            	},{
+            		date: new Date(2012,02,08),
+            		chicken: 3,
+            		beef: 10,
+            		meatballs: 5 
+            	},{
+            		date: new Date(2012,02,09),
+            		chicken: 0,
+            		beef: 7,
+            		meatballs: 12 
+            	},{
+            		date: new Date(2012,02,10),
+            		chicken: 5,
+            		beef: 4,
+            		meatballs: 12 
             	});
             		
 
@@ -60,14 +91,40 @@
                 valueAxis1.axisThickness = 2;
                 valueAxis1.gridAlpha = 0;
                 chart.addValueAxis(valueAxis1);
+                
+                var valueAxis2 = new AmCharts.ValueAxis();
+                valueAxis2.axisColor = "#FF0000";
+                valueAxis2.axisThickness = 2;
+                valueAxis2.gridAlpha = 0;
+                chart.addValueAxis(valueAxis2);
+                
+                var valueAxis3 = new AmCharts.ValueAxis();
+                valueAxis3.axisColor = "#FF00FF";
+                valueAxis3.axisThickness = 2;
+                valueAxis3.gridAlpha = 0;
+                chart.addValueAxis(valueAxis3);
 
                 // GRAPH
                 var graph1 = new AmCharts.AmGraph();
                 graph1.valueAxis = valueAxis1; // we have to indicate which value axis should be used
-                graph1.title = "Total Coupons Sold";
-                graph1.valueField = "sold";
+                graph1.title = "Chicken Subs";
+                graph1.valueField = "chicken";
                 graph1.bullet = "round";
                 chart.addGraph(graph1);
+                
+                var graph2 = new AmCharts.AmGraph();
+                graph2.valueAxis = valueAxis1; // we have to indicate which value axis should be used
+                graph2.title = "Beef Subs";
+                graph2.valueField = "beef";
+                graph2.bullet = "round";
+                chart.addGraph(graph2);
+                
+                var graph3 = new AmCharts.AmGraph();
+                graph3.valueAxis = valueAxis1; // we have to indicate which value axis should be used
+                graph3.title = "Meatball Subs";
+                graph3.valueField = "meatballs";
+                graph3.bullet = "round";
+                chart.addGraph(graph3);
 
                 // CURSOR
                 var chartCursor = new AmCharts.ChartCursor();
@@ -124,7 +181,8 @@
     <p>
     <p>
     <p>   
-    <p><h1 style="text-align:center; color:gray">Current Coupon Stats</h1>
+    <p><h1 style="text-align:center; color:gray">***COMING SOON: VIEW COUPON STATISTICS!!!***</h1>
+    <p><h2 style="text-align:center; color:black">*Sample View of Subway Coupons*</h2>
 </div></td>
 </tr>
 </table>
