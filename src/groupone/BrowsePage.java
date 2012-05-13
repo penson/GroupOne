@@ -56,8 +56,7 @@ public class BrowsePage extends HttpServlet {
 				filtered.add(c);
 		}
 		
-		//for testing, don't change! =D
-		coupons = allCoupons;			
+		coupons = filtered;			
 	}		
 
 }
