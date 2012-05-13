@@ -50,6 +50,7 @@ alt="GroupOne logo" hspace="0" vspace="0" align="left" class="logo img"></a>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p><b>Not Registered? No Problem!</b></p>
+    <div align="right"><font color="red">${customer_error}</font></div>
   </div>
 <div id="registration_container">
 <table align="right" cellpadding="1"
@@ -88,24 +89,23 @@ type="text">
 <td>New Password:</td>
 <td><input class="inputtext" id="reg_passwd__" name="c_reg_passwd__" value="" type="password"></td>
 </tr>
+
 </tbody>
 </table>
-<p>&nbsp;  </p>
+
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p align="right">
-<input value="Submit" type="submit">
-<p align="right"><font color="red">${customer_error}</font>
-</p>
+<p>&nbsp;</p>
+<p align="right"><input value="Submit" type="submit"></p>
 </div>
 </form>
 
 <!--  This is where the vendor will create account -->
 <form action="CreateVendor" id="signupForm" method="post">
 <div style="text-align: right;">
-<p>
-<b>Vendors! Register Here!!</b>
+<p><b>Vendors! Register Here!!</b></p>
+<div align="right"><font color="red">${vendor_error}</font></div>
 </div>
 <div id="registration_container">
 <table align="right" cellpadding="1"
@@ -136,18 +136,15 @@ type="text">
 
 <tr>
 <td>New Password:</td>
-<td><input class="inputtext"
-id="reg_passwd__" name="v_reg_passwd__" value="" type="password">
+<td><input class="inputtext" id="reg_passwd__" name="v_reg_passwd__" value="" type="password"></td>
+
 </tbody>
 </table>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p align="right">&nbsp;</p>
-<p align="right">
-<input value="Submit" type="submit">
-<p align="right"><font color="red">${vendor_error}</font>
-</p>
+
+<p align="right"><input value="Submit" type="submit">
 </div>
 </form>
 

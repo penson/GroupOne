@@ -41,7 +41,15 @@ public class CreateVendor extends HttpServlet {
 		String email2 = request.getParameter("v_reg_email_confirmation__").toString();
 		String pass = request.getParameter("v_reg_passwd__").toString();
 
-		if (DBOperation.createAccount(firstName, "", email, pass, "V")) 
+		if (firstName.equals("") || email.equals("") || email2.equals("") || pass.equals("")) {
+			request.setAttribute("vendor_error", "Uh-Oh! Did you forget something?");
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+		else if (!email.equalsIgnoreCase(email2)) {
+			request.setAttribute("vendor_error", "Uh-Oh! Emails don't match!");
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+		else if (DBOperation.createAccount(firstName, "", email, pass, "V")) 
 		{
 			session.setAttribute("userType", "vendor");
 			request.getRequestDispatcher("/registration_confirmation.jsp").forward(request, response);

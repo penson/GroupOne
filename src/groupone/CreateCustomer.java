@@ -41,14 +41,22 @@ public class CreateCustomer extends HttpServlet {
 		String email = request.getParameter("c_reg_email__").toString();
 		String email2 = request.getParameter("c_reg_email_confirmation__").toString();
 		String pass = request.getParameter("c_reg_passwd__").toString();
-
-		if (DBOperation.createAccount(firstName, lastName, email, pass, "C")) 
+		
+		if (firstName.equals("") || lastName.equals("") || email.equals("") || email2.equals("") || pass.equals("")) {
+			request.setAttribute("customer_error", "Uh-Oh! Did you forget something?");
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+		else if (!email.equalsIgnoreCase(email2)) {
+			request.setAttribute("customer_error", "Uh-Oh! Emails don't match!");
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+		else if (DBOperation.createAccount(firstName, lastName, email, pass, "C")) 
 		{
 			session.setAttribute("userType", "customer");
 			request.getRequestDispatcher("/registration_confirmation.jsp").forward(request, response);
 		} else {
 			// Something is wrong. Go back to index.
-			request.setAttribute("customer_error", "Uh-Oh! Registration failed!\nTry resseting password");
+			request.setAttribute("customer_error", "Uh-Oh! Registration failed!");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
         
