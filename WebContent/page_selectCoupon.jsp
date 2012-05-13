@@ -35,7 +35,7 @@
 </tr>
 </table>
 
-<form id="couponSelect" action="SelectCoupon" method="post">
+<form id="selectCoupon" action="SelectCoupon" method="post">
 <table cellpadding="15" border="1" style="background-color: #ffffcc;">
 	<tr>
 	<td>ID</td>

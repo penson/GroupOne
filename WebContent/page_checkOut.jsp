@@ -36,7 +36,6 @@
 <table align="center" cellpadding="15" border="1" style="background-color: powderblue;">
 	<tr>
 	<td>Title</td>
-	<td>Create Date</td>
 	<td>Expire Date</td>
 	<td>Price</td>
 	<td>Category</td>
@@ -50,7 +49,6 @@
 
 	<tr>
 	<td><%=c.getTitle()%></td>
-	<td><%=c.getCreateDate()%></td>
 	<td><%=c.getExpireDate()%></td>
 	<td><%=c.getPrice()%></td>
 	<td><%=c.getCategory()%></td>
