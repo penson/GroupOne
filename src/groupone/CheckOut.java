@@ -43,14 +43,22 @@ public class CheckOut extends HttpServlet {
 		String objectId2 = request.getParameter("objectId2");
 		String[] couponIds = (String[])request.getSession().getAttribute(objectId);
 		boolean gift = false;
+		String giftEmail;
 		
 		if(request.getParameter("gift").equalsIgnoreCase("ON")) 
 		{
 			gift = true;
+			giftEmail = request.getParameter("giftEmail");
+			
+			DBOperation.updateCoupon(couponIds);
+			DBOperation.createTransaction(accountId, giftEmail, couponIds, gift);
+		}
+		else {
+			DBOperation.updateCoupon(couponIds);
+			DBOperation.createTransaction(accountId, userEmail, couponIds, gift);
 		}
 		
-		DBOperation.updateCoupon(couponIds);
-		DBOperation.createTransaction(accountId, userEmail, couponIds, gift);
+
 		
 		request.setAttribute("coupons", request.getSession().getAttribute(objectId2));
 		request.getRequestDispatcher("/page_invoice.jsp").forward(request, response);

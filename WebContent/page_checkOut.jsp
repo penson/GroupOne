@@ -66,7 +66,7 @@
 		if(request.getAttribute("gift") != null) {
 			out.println("<tr>");
 			out.println("<td>Recepient Email Address</td>");
-			out.println("<td><input type=\"text\" name=\"textField\">");
+			out.println("<td><input type=\"text\" name=\"giftEmail\">");
 			out.println("</tr>");
 		}
 %>

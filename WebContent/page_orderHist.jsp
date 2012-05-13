@@ -42,6 +42,7 @@
 	<td>Price</td>
 	<td>Category</td>
 	<td>Type</td>
+	<td>Recipient Email</td>
 	</tr>
 
 <%
@@ -63,6 +64,7 @@
 			<td><%=coupon.getPrice()%></td>
 			<td><%=coupon.getCategory()%></td>
 			<td><%=t.getType()%></td>
+			<td><%=t.getEmail()%></td>
 			</tr>
 
 <%
