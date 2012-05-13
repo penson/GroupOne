@@ -138,7 +138,7 @@ type="text"></div>
 <option value="health">Health</option>
 <option value="photography">Photography</option>
 <option value="footwear">Footwear</option>
-<option value="magazone">Magazine</option>
+<option value="magazine">Magazine</option>
 <option value="homedecorating">Home Decorating</option>
 </select>
 </div>
