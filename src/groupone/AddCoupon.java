@@ -52,12 +52,12 @@ public class AddCoupon extends HttpServlet {
 		if(DBOperation.addCoupon(title, date, quantity, price, category, vendorId))
 		{
 			request.setAttribute("couponAdded", "Coupon has been added!");
-			request.getRequestDispatcher("/add_coupon.jsp").forward(request, response);
+			request.getRequestDispatcher("/page_addCoupon.jsp").forward(request, response);
 		}
 		else
 		{
 			request.setAttribute("couponError", "There was An error adding Coupon");
-			request.getRequestDispatcher("/add_coupon.jsp").forward(request, response);
+			request.getRequestDispatcher("/page_addCoupon.jsp").forward(request, response);
 		}
 		
 	}

@@ -20,7 +20,7 @@ function delayer()
 	
 	if(type == 'vendor')
 	{
-		window.location = 'vendor.jsp';
+		window.location = 'page_vendorHome.jsp';
 	}
 	else
 	{
