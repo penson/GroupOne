@@ -60,7 +60,9 @@ public class CreateVendor extends HttpServlet {
 		}
 		else if (DBOperation.createAccount(firstName, "", email, pass, "V")) 
 		{
+			Account account = DBOperation.getAccount(email, pass);
 			session.setAttribute("userType", "vendor");
+			session.setAttribute("account", account);
 			request.getRequestDispatcher("/registration_confirmation.jsp").forward(request, response);
 		} else {
 			// Something is wrong. Go back to index.

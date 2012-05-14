@@ -60,7 +60,9 @@ public class CreateCustomer extends HttpServlet {
 		}
 		else if (DBOperation.createAccount(firstName, lastName, email, pass, "C")) 
 		{
+			Account account = DBOperation.getAccount(email, pass);
 			session.setAttribute("userType", "customer");
+			session.setAttribute("account", account);
 			request.getRequestDispatcher("/registration_confirmation.jsp").forward(request, response);
 		} else {
 			// Something is wrong. Go back to index.
