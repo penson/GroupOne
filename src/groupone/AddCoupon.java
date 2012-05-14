@@ -48,8 +48,11 @@ public class AddCoupon extends HttpServlet {
 		String price = request.getParameter("price").toString();
 		String category = request.getParameter("category").toString();
 				
-		
-		if(DBOperation.addCoupon(title, date, quantity, price, category, vendorId))
+		if(title.equals("") || quantity.equals("") || price.equals("")) {
+			request.setAttribute("couponError", "Uh-Oh! Did you forget something?");
+			request.getRequestDispatcher("/page_addCoupon.jsp").forward(request, response);
+		}
+		else if(DBOperation.addCoupon(title, date, quantity, price, category, vendorId))
 		{
 			request.setAttribute("couponAdded", "Coupon has been added!");
 			request.getRequestDispatcher("/page_addCoupon.jsp").forward(request, response);

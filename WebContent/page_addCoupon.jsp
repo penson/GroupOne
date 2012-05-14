@@ -35,7 +35,7 @@
 </table>
 
 <p align="center"><b>${couponAdded}</b></p>
-<p align="center"><b>${couponError}</b></p>
+<p style="color:red" align="center"><b>${couponError}</b></p>
 <p>
 <p>
 <p>
