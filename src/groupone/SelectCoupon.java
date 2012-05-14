@@ -55,6 +55,9 @@ public class SelectCoupon extends HttpServlet {
 			
 			request.getRequestDispatcher("/page_checkOut.jsp").forward(request, response);
 		}
+		else {
+			request.getRequestDispatcher("/page_browse.jsp").forward(request, response);
+		}
 	}
 
 }
