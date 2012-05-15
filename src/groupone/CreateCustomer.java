@@ -43,8 +43,9 @@ public class CreateCustomer extends HttpServlet {
 		String email = request.getParameter("c_reg_email__").toString();
 		String email2 = request.getParameter("c_reg_email_confirmation__").toString();
 		String pass = request.getParameter("c_reg_passwd__").toString();
+		String encryptedPass = pass;
 		try {
-			pass = AeSimpleSHA1.SHA1(pass);
+			encryptedPass = AeSimpleSHA1.SHA1(pass);
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,9 +59,11 @@ public class CreateCustomer extends HttpServlet {
 			request.setAttribute("customer_error", "Uh-Oh! Emails don't match!");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
-		else if (DBOperation.createAccount(firstName, lastName, email, pass, "C")) 
+		else if (DBOperation.createAccount(firstName, lastName, email, encryptedPass, "C")) 
 		{
+			Account account = DBOperation.getAccount(email, encryptedPass);
 			session.setAttribute("userType", "customer");
+			session.setAttribute("account", account);
 			request.getRequestDispatcher("/registration_confirmation.jsp").forward(request, response);
 		} else {
 			// Something is wrong. Go back to index.

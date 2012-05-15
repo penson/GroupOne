@@ -42,8 +42,9 @@ public class CreateVendor extends HttpServlet {
 		String email = request.getParameter("v_reg_email__").toString();
 		String email2 = request.getParameter("v_reg_email_confirmation__").toString();
 		String pass = request.getParameter("v_reg_passwd__").toString();
+		String encryptedPass = pass;
 		try {
-			pass = AeSimpleSHA1.SHA1(pass);
+			encryptedPass = AeSimpleSHA1.SHA1(pass);
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,13 +59,14 @@ public class CreateVendor extends HttpServlet {
 			request.setAttribute("vendor_error", "Uh-Oh! Emails don't match!");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
-		else if (DBOperation.createAccount(firstName, "", email, pass, "V")) 
+		else if (DBOperation.createAccount(firstName, "", email, encryptedPass, "V")) 
 		{
+			Account account = DBOperation.getAccount(email, encryptedPass);
 			session.setAttribute("userType", "vendor");
+			session.setAttribute("account", account);
 			request.getRequestDispatcher("/registration_confirmation.jsp").forward(request, response);
 		} else {
-			// Something is wrong. Go back to index.
-			
+			// Something is wrong. Go back to index.			
 			request.setAttribute("vendor_error", "Uh-Oh! Registration failed!\nTry resseting password");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}

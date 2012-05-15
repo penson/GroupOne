@@ -36,7 +36,7 @@ public class ChangePassword extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession userSession = request.getSession(true);
+		HttpSession userSession = request.getSession(false);
 		Account account = (Account)userSession.getAttribute("account");
 		String currentPassword = request.getParameter("currentPassword").toString();
 		String newPassword = request.getParameter("newPassword").toString();

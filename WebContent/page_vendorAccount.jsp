@@ -36,7 +36,7 @@
 <h3>Change your Email</h3>
 <form action="ChangeEmail" id="changeEmailForm" method="post">
 <div id="changeEmailContainer">
-<table cellpadding="1" cellspacing="0" width="300">
+<table cellpadding="1" cellspacing="0" width="400">
 <tbody>
 <tr>
 <td width="300">Current Email:</td>
