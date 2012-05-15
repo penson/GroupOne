@@ -144,7 +144,7 @@ type="text">
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
-<p align="right"><input value="Submit" type="submit">
+<p align="right"><input value="Submit" type="submit"></p>
 </div>
 </form>
 
